@@ -24,7 +24,7 @@ try {
 
 $root = (Resolve-Path -LiteralPath $Path).ProviderPath.TrimEnd('\', '/')
 $reports = @(Get-ChildItem -LiteralPath $root -Filter '*.rpt' -Recurse -File | Sort-Object FullName)
-$inventory = foreach ($file in $reports) {
+$inventory = @(foreach ($file in $reports) {
     $document = [CrystalDecisions.CrystalReports.Engine.ReportDocument]::new()
     $relativePath = $file.FullName.Substring($root.Length).TrimStart('\', '/')
     try {
@@ -51,10 +51,10 @@ $inventory = foreach ($file in $reports) {
             Error = $_.Exception.Message
         }
     } finally {
-        $document.Close()
+        try { $document.Close() } catch { }
         $document.Dispose()
     }
-}
+})
 
 if ($Output) {
     $outputPath = [System.IO.Path]::GetFullPath($Output)

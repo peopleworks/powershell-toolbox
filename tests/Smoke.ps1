@@ -21,6 +21,11 @@ try {
     $legacy = & (Join-Path $root 'scripts/files/Get-TextEncoding.ps1') -Path $legacyFile
     if ($legacy.Encoding -ne 'Unknown') { throw 'Invalid UTF-8 was guessed as a known encoding.' }
 
+    $emptyFile = Join-Path $testDirectory 'empty.txt'; $created += $emptyFile
+    [System.IO.File]::WriteAllBytes($emptyFile, [byte[]]@())
+    $empty = & (Join-Path $root 'scripts/files/Get-TextEncoding.ps1') -Path $emptyFile
+    if ($empty.Encoding -ne 'Unknown') { throw 'Empty file was assigned an encoding.' }
+
     if ($IsWindows) {
         Add-Type -AssemblyName System.Drawing
         $beforePath = Join-Path $testDirectory 'before.png'; $created += $beforePath

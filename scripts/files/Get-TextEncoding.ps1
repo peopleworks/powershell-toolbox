@@ -40,6 +40,7 @@ if ($bytes.Length -ge 4 -and $bytes[0] -eq 0x00 -and $bytes[1] -eq 0x00 -and $by
             $encoding = 'UTF-8 (no BOM)'
         }
         if ($bytes.Length -eq 0) {
+            $encoding = 'Unknown'
             $note = 'Empty file; encoding cannot be determined.'
         } elseif ($encoding -ne 'Unknown' -and -not ($bytes | Where-Object { $_ -gt 0x7F } | Select-Object -First 1)) {
             $note = 'ASCII-only bytes are also valid in many legacy encodings.'
