@@ -1,0 +1,6 @@
+.scratch/
+.local/
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
