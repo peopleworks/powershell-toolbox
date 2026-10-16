@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#081525">
-  <meta name="description" content="50 scripts de PowerShell para automatización diaria: archivos, red, seguridad, identidad, eventos, respaldo, energía, impresión, IIS, bases de datos y más.">
+  <meta name="description" content="64 scripts de PowerShell para automatización diaria: archivos, red, seguridad, identidad, eventos, respaldo, energía, impresión, IIS, bases de datos, Azure y más.">
   <title>PowerShell Toolbox · scripts que resuelven trabajo real</title>
   <style>
     :root { color-scheme: dark; --bg:#081525; --panel:#10243a; --line:#294660; --text:#edf6ff; --muted:#a5bdd0; --mint:#63e1c0; --blue:#86b8ff; --orange:#ffca86; }
@@ -61,7 +61,6 @@
     .empty { color:var(--muted); padding:30px 0; }
     footer { border-top:1px solid #28465e; padding:27px 0 40px; color:var(--muted); font-size:14px; }
     footer a { color:var(--mint); }
-    /* Installation steps */
     .install { padding:42px 0 80px; border-top:1px solid #28465e; }
     .install-head { text-align:center; margin-bottom:40px; }
     .install-head h2 { font-size:clamp(31px,4vw,45px); letter-spacing:-.04em; margin:0 0 12px; }
@@ -88,9 +87,9 @@
         <div>
           <div class="eyebrow" data-es="Código práctico · sin datos de clientes" data-en="Practical code · no customer data">Código práctico · sin datos de clientes</div>
           <h1 data-es="PowerShell que <span>resuelve</span> trabajo real." data-en="PowerShell that <span>gets work done.</span>">PowerShell que <span>resuelve</span> trabajo real.</h1>
-          <p class="lead" data-es="Una caja de herramientas para archivos, red, seguridad, identidad, eventos, respaldo, energía, impresión, IIS, bases de datos y automatización. Scripts independientes, ejemplos claros y código listo para adaptar." data-en="A toolbox for files, networks, security, identity, events, backup, power, printing, IIS, databases, and automation. Standalone scripts, clear examples, and code ready to adapt.">Una caja de herramientas para archivos, red, seguridad, identidad, eventos, respaldo, energía, impresión, IIS, bases de datos y automatización. Scripts independientes, ejemplos claros y código listo para adaptar.</p>
+          <p class="lead" data-es="Una caja de herramientas para archivos, red, seguridad, identidad, eventos, respaldo, energía, impresión, IIS, bases de datos, Azure y automatización. Scripts independientes, ejemplos claros y código listo para adaptar." data-en="A toolbox for files, networks, security, identity, events, backup, power, printing, IIS, databases, Azure, and automation. Standalone scripts, clear examples, and code ready to adapt.">Una caja de herramientas para archivos, red, seguridad, identidad, eventos, respaldo, energía, impresión, IIS, bases de datos, Azure y automatización. Scripts independientes, ejemplos claros y código listo para adaptar.</p>
           <div class="actions"><a class="button primary" href="#install" data-es="Ver cómo instalar ↓" data-en="See how to install ↓">Ver cómo instalar ↓</a><a class="button secondary" href="https://github.com/peopleworks/powershell-toolbox" data-es="Ver repositorio ↗" data-en="View repository ↗">Ver repositorio ↗</a></div>
-          <div class="stats"><div><strong id="scriptCount">50</strong><span data-es="scripts" data-en="scripts">scripts</span></div><div><strong id="categoryCount">16</strong><span data-es="categorías" data-en="categories">categorías</span></div><div><strong>MIT</strong><span data-es="licencia" data-en="license">licencia</span></div></div>
+          <div class="stats"><div><strong id="scriptCount">64</strong><span data-es="scripts" data-en="scripts">scripts</span></div><div><strong id="categoryCount">17</strong><span data-es="categorías" data-en="categories">categorías</span></div><div><strong>MIT</strong><span data-es="licencia" data-en="license">licencia</span></div></div>
         </div>
         <div class="terminal" aria-label="PowerShell example">
           <div class="terminal-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="terminal-title">PowerShell 7 · quick start</span></div>
@@ -108,7 +107,7 @@ Files      : {report-a.pdf, report-b.pdf, backup.pdf}</span>
       <section id="install" class="install">
         <div class="install-head">
           <h2 data-es="Primeros pasos — qué instalar" data-en="First steps — what to install">Primeros pasos — qué instalar</h2>
-          <p data-es="Configura tu entorno para ejecutar los scripts de PowerShell Toolbox, incluidos los de bases de datos." data-en="Set up your environment to run PowerShell Toolbox scripts, including the database ones.">Configura tu entorno para ejecutar los scripts de PowerShell Toolbox, incluidos los de bases de datos.</p>
+          <p data-es="Configura tu entorno para ejecutar los scripts de PowerShell Toolbox, incluidos los de Azure y bases de datos." data-en="Set up your environment to run PowerShell Toolbox scripts, including Azure and database ones.">Configura tu entorno para ejecutar los scripts de PowerShell Toolbox, incluidos los de Azure y bases de datos.</p>
         </div>
         <div class="steps">
           <article class="step">
@@ -126,21 +125,28 @@ Files      : {report-a.pdf, report-b.pdf, backup.pdf}</span>
           <article class="step">
             <div class="step-num">3</div>
             <h3 data-es="Instalar dbatools (SQL Server)" data-en="Install dbatools (SQL Server)">Instalar dbatools (SQL Server)</h3>
-            <p data-es="Los scripts de respaldo, conexión, info, jobs, historial y fragmentación de SQL Server usan dbatools." data-en="The SQL Server backup, connection, info, jobs, history, and fragmentation scripts use dbatools.">Los scripts de respaldo, conexión, info, jobs, historial y fragmentación de SQL Server usan dbatools.</p>
+            <p data-es="Los scripts de SQL Server usan dbatools." data-en="The SQL Server scripts use dbatools.">Los scripts de SQL Server usan dbatools.</p>
             <pre>Install-Module dbatools -Scope CurrentUser</pre>
           </article>
           <article class="step">
             <div class="step-num">4</div>
+            <h3 data-es="Instalar módulo Az (Azure)" data-en="Install Az module (Azure)">Instalar módulo Az (Azure)</h3>
+            <p data-es="Los scripts de Azure requieren el módulo Az y una sesión autenticada con Connect-AzAccount." data-en="The Azure scripts require the Az module and an authenticated session via Connect-AzAccount.">Los scripts de Azure requieren el módulo Az y una sesión autenticada con Connect-AzAccount.</p>
+            <pre>Install-Module Az -Scope CurrentUser
+Connect-AzAccount</pre>
+          </article>
+          <article class="step">
+            <div class="step-num">5</div>
             <h3 data-es="Controladores ODBC (opcional)" data-en="ODBC drivers (optional)">Controladores ODBC (opcional)</h3>
             <p data-es="Instala los controladores ODBC de las bases de datos que quieras probar: MySQL, PostgreSQL, Oracle." data-en="Install the ODBC drivers for the databases you want to test: MySQL, PostgreSQL, Oracle.">Instala los controladores ODBC de las bases de datos que quieras probar: MySQL, PostgreSQL, Oracle.</p>
             <pre># Ejemplo: MySQL ODBC Driver 8.0
 # Descarga desde dev.mysql.com</pre>
           </article>
           <article class="step">
-            <div class="step-num">5</div>
+            <div class="step-num">6</div>
             <h3 data-es="Ejecutar un script de ejemplo" data-en="Run an example script">Ejecutar un script de ejemplo</h3>
-            <p data-es="Desde la raíz del repositorio, en PowerShell 7, prueba cualquiera de los 50 scripts." data-en="From the repository root, in PowerShell 7, try any of the 50 scripts.">Desde la raíz del repositorio, en PowerShell 7, prueba cualquiera de los 50 scripts.</p>
-            <pre>./scripts/database/Test-SqlServerConnection.ps1 -SqlInstance SqlProd</pre>
+            <p data-es="Desde la raíz del repositorio, en PowerShell 7, prueba cualquiera de los 64 scripts." data-en="From the repository root, in PowerShell 7, try any of the 64 scripts.">Desde la raíz del repositorio, en PowerShell 7, prueba cualquiera de los 64 scripts.</p>
+            <pre>./scripts/azure/Test-AzureConnectivity.ps1</pre>
           </article>
         </div>
       </section>
@@ -222,6 +228,21 @@ Files      : {report-a.pdf, report-b.pdf, backup.pdf}</span>
       {n:'Test-RedisConnection',c:'database',p:'scripts/database/Test-RedisConnection.ps1',es:'Prueba conexión a Redis enviando PING.',en:'Tests Redis connectivity by sending PING.',r:'TCP 6379',cmd:'./scripts/database/Test-RedisConnection.ps1 -Server redis.example.com -Port 6379'},
       {n:'Get-ElasticsearchHealth',c:'database',p:'scripts/database/Get-ElasticsearchHealth.ps1',es:'Salud de clúster de Elasticsearch: estado, nodos, tareas pendientes.',en:'Elasticsearch cluster health: status, nodes, pending tasks.',r:'HTTP 9200',cmd:'./scripts/database/Get-ElasticsearchHealth.ps1 -Server elastic.example.com -Port 9200'},
 
+      {n:'Test-AzureConnectivity',c:'azure',p:'scripts/azure/Test-AzureConnectivity.ps1',es:'Verifica contexto y autenticación a Azure.',en:'Verifies Azure context and authentication.',r:'Az module',cmd:'./scripts/azure/Test-AzureConnectivity.ps1'},
+      {n:'Get-AzureVMStatus',c:'azure',p:'scripts/azure/Get-AzureVMStatus.ps1',es:'Estado y tamaño de máquinas virtuales de Azure.',en:'Azure VM state and size.',r:'Az module',cmd:'./scripts/azure/Get-AzureVMStatus.ps1 -ResourceGroupName rg-ejemplo'},
+      {n:'Get-AzureStorageAccount',c:'azure',p:'scripts/azure/Get-AzureStorageAccount.ps1',es:'Cuentas de almacenamiento de Azure, SKU y tipo.',en:'Azure storage accounts, SKU, and kind.',r:'Az module',cmd:'./scripts/azure/Get-AzureStorageAccount.ps1 -ResourceGroupName rg-ejemplo'},
+      {n:'Get-AzureKeyVaultSecrets',c:'azure',p:'scripts/azure/Get-AzureKeyVaultSecrets.ps1',es:'Secretos de Azure Key Vault sin revelar sus valores.',en:'Azure Key Vault secrets without revealing values.',r:'Az module',cmd:'./scripts/azure/Get-AzureKeyVaultSecrets.ps1 -VaultName kv-ejemplo'},
+      {n:'Get-AzureAppService',c:'azure',p:'scripts/azure/Get-AzureAppService.ps1',es:'App Services de Azure con estado y runtime.',en:'Azure App Services with state and runtime.',r:'Az module',cmd:'./scripts/azure/Get-AzureAppService.ps1 -ResourceGroupName rg-ejemplo'},
+      {n:'Get-AzureSqlDatabase',c:'azure',p:'scripts/azure/Get-AzureSqlDatabase.ps1',es:'Bases de datos SQL de Azure con edición y estado.',en:'Azure SQL databases with edition and status.',r:'Az module',cmd:'./scripts/azure/Get-AzureSqlDatabase.ps1 -ServerName sql-ejemplo'},
+      {n:'Get-AzureResourceGroup',c:'azure',p:'scripts/azure/Get-AzureResourceGroup.ps1',es:'Grupos de recursos de Azure y ubicación.',en:'Azure resource groups and location.',r:'Az module',cmd:'./scripts/azure/Get-AzureResourceGroup.ps1'},
+      {n:'Get-AzureManagedDisk',c:'azure',p:'scripts/azure/Get-AzureManagedDisk.ps1',es:'Discos gestionados de Azure con tamaño y SKU.',en:'Azure managed disks with size and SKU.',r:'Az module',cmd:'./scripts/azure/Get-AzureManagedDisk.ps1 -ResourceGroupName rg-ejemplo'},
+      {n:'Get-AzureNetworkInterface',c:'azure',p:'scripts/azure/Get-AzureNetworkInterface.ps1',es:'Interfaces de red de Azure con IP privada.',en:'Azure network interfaces with private IP.',r:'Az module',cmd:'./scripts/azure/Get-AzureNetworkInterface.ps1 -ResourceGroupName rg-ejemplo'},
+      {n:'Get-AzurePublicIP',c:'azure',p:'scripts/azure/Get-AzurePublicIP.ps1',es:'Direcciones IP públicas de Azure.',en:'Azure public IP addresses.',r:'Az module',cmd:'./scripts/azure/Get-AzurePublicIP.ps1 -ResourceGroupName rg-ejemplo'},
+      {n:'Get-AzureADUserSummary',c:'azure',p:'scripts/azure/Get-AzureADUserSummary.ps1',es:'Usuarios de Azure Active Directory.',en:'Azure Active Directory users.',r:'Az module',cmd:'./scripts/azure/Get-AzureADUserSummary.ps1'},
+      {n:'Get-AzureSubscriptionSummary',c:'azure',p:'scripts/azure/Get-AzureSubscriptionSummary.ps1',es:'Suscripciones de Azure accesibles.',en:'Accessible Azure subscriptions.',r:'Az module',cmd:'./scripts/azure/Get-AzureSubscriptionSummary.ps1'},
+      {n:'Get-AzureResourceLock',c:'azure',p:'scripts/azure/Get-AzureResourceLock.ps1',es:'Bloqueos de recursos de Azure.',en:'Azure resource locks.',r:'Az module',cmd:'./scripts/azure/Get-AzureResourceLock.ps1 -ResourceGroupName rg-ejemplo'},
+      {n:'Get-AzureVMSizeRecommendation',c:'azure',p:'scripts/azure/Get-AzureVMSizeRecommendation.ps1',es:'Tamaños de VM de Azure disponibles por ubicación.',en:'Available Azure VM sizes by location.',r:'Az module',cmd:'./scripts/azure/Get-AzureVMSizeRecommendation.ps1 -Location eastus'},
+
       {n:'Convert-TextToSpeech',c:'media',p:'scripts/media/Convert-TextToSpeech.ps1',es:'Crea un WAV con una voz Windows SAPI instalada.',en:'Creates a WAV with an installed Windows SAPI voice.',r:'WinPS 5.1',cmd:'powershell.exe -File ./scripts/media/Convert-TextToSpeech.ps1 -Text "Hello" -Output ./hello.wav'}
     ];
     const labels = {
@@ -242,6 +263,7 @@ Files      : {report-a.pdf, report-b.pdf, backup.pdf}</span>
       code:{es:'Código',en:'Code'},
       data:{es:'Datos',en:'Data'},
       database:{es:'Base de datos',en:'Database'},
+      azure:{es:'Azure',en:'Azure'},
       media:{es:'Audio',en:'Audio'}
     };
     let language = 'es', category = 'all';

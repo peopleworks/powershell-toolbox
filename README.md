@@ -1,6 +1,6 @@
 # ⚡ PowerShell Toolbox
 
-**50 scripts · 16 categorías · documentación en español e inglés · Licencia MIT**
+**64 scripts · 17 categorías · documentación en español e inglés · Licencia MIT**
 
 Una colección curada de scripts de PowerShell para tareas de automatización diaria: inspeccionar archivos, diagnosticar redes, revisar seguridad, administrar usuarios, respaldar datos, monitorear energía, impresión, IIS y mucho más. Cada herramienta se ejecuta por separado; no hay instalador ni módulo obligatorio.
 
@@ -61,6 +61,20 @@ Una colección curada de scripts de PowerShell para tareas de automatización di
 | 🗄️ **Base de datos** | [Test-MongoDbConnection](scripts/database/Test-MongoDbConnection.ps1) | Prueba conexión a MongoDB con ping |
 | 🗄️ **Base de datos** | [Test-RedisConnection](scripts/database/Test-RedisConnection.ps1) | Prueba conexión a Redis con PING |
 | 🗄️ **Base de datos** | [Get-ElasticsearchHealth](scripts/database/Get-ElasticsearchHealth.ps1) | Salud de clúster de Elasticsearch |
+| ☁️ **Azure** | [Test-AzureConnectivity](scripts/azure/Test-AzureConnectivity.ps1) | Verifica contexto y autenticación a Azure |
+| ☁️ **Azure** | [Get-AzureVMStatus](scripts/azure/Get-AzureVMStatus.ps1) | Estado y tamaño de máquinas virtuales |
+| ☁️ **Azure** | [Get-AzureStorageAccount](scripts/azure/Get-AzureStorageAccount.ps1) | Cuentas de almacenamiento, SKU y tipo |
+| ☁️ **Azure** | [Get-AzureKeyVaultSecrets](scripts/azure/Get-AzureKeyVaultSecrets.ps1) | Secretos de Key Vault (sin mostrar valores) |
+| ☁️ **Azure** | [Get-AzureAppService](scripts/azure/Get-AzureAppService.ps1) | App Services, estado y runtime |
+| ☁️ **Azure** | [Get-AzureSqlDatabase](scripts/azure/Get-AzureSqlDatabase.ps1) | Bases de datos SQL de Azure |
+| ☁️ **Azure** | [Get-AzureResourceGroup](scripts/azure/Get-AzureResourceGroup.ps1) | Grupos de recursos y ubicación |
+| ☁️ **Azure** | [Get-AzureManagedDisk](scripts/azure/Get-AzureManagedDisk.ps1) | Discos gestionados y SKU |
+| ☁️ **Azure** | [Get-AzureNetworkInterface](scripts/azure/Get-AzureNetworkInterface.ps1) | Interfaces de red e IP privada |
+| ☁️ **Azure** | [Get-AzurePublicIP](scripts/azure/Get-AzurePublicIP.ps1) | Direcciones IP públicas |
+| ☁️ **Azure** | [Get-AzureADUserSummary](scripts/azure/Get-AzureADUserSummary.ps1) | Usuarios de Azure AD |
+| ☁️ **Azure** | [Get-AzureSubscriptionSummary](scripts/azure/Get-AzureSubscriptionSummary.ps1) | Suscripciones accesibles |
+| ☁️ **Azure** | [Get-AzureResourceLock](scripts/azure/Get-AzureResourceLock.ps1) | Bloqueos de recursos |
+| ☁️ **Azure** | [Get-AzureVMSizeRecommendation](scripts/azure/Get-AzureVMSizeRecommendation.ps1) | Tamaños de VM disponibles por ubicación |
 | 🔊 **Audio** | [Convert-TextToSpeech](scripts/media/Convert-TextToSpeech.ps1) | Crea WAV con voz SAPI de Windows |
 
 ---
