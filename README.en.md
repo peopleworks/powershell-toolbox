@@ -1,6 +1,6 @@
 # ⚡ PowerShell Toolbox
 
-**64 scripts · 17 categories · Spanish and English documentation · MIT License**
+**81 scripts · 20 categories · Spanish and English documentation · MIT License**
 
 A curated collection of standalone PowerShell scripts for daily automation: inspecting files, diagnosing networks, reviewing security, managing users, backing up data, monitoring power, printing, IIS, and much more. Each tool runs independently; no installer or module is required.
 
@@ -35,6 +35,11 @@ A curated collection of standalone PowerShell scripts for daily automation: insp
 | 🔋 **Power** | [Get-PowerStatus](scripts/power/Get-PowerStatus.ps1) | Battery, power plan and USB devices |
 | 🖨️ **Printing** | [Get-PrinterQueue](scripts/printing/Get-PrinterQueue.ps1) | Printers and pending print jobs |
 | 🌐 **IIS** | [Get-IisSiteStatus](scripts/iis/Get-IisSiteStatus.ps1) | IIS sites and application pools |
+| 🌐 **IIS** | [Get-IISWebsiteLogs](scripts/iis/Get-IISWebsiteLogs.ps1) | Analyze IIS W3C logs by status code |
+| 🌐 **IIS** | [Get-IISPerformanceSummary](scripts/iis/Get-IISPerformanceSummary.ps1) | IIS performance counters |
+| 🌐 **IIS** | [Get-IISErrorAnalysis](scripts/iis/Get-IISErrorAnalysis.ps1) | 4xx and 5xx error analysis in IIS logs |
+| 🌐 **IIS** | [Get-IISAppPoolStatus](scripts/iis/Get-IISAppPoolStatus.ps1) | IIS application pool state |
+| 🌐 **IIS** | [Get-IISSiteBindings](scripts/iis/Get-IISSiteBindings.ps1) | IIS site bindings and physical paths |
 | 💻 **System** | [Get-PendingReboot](scripts/system/Get-PendingReboot.ps1) | Detects if Windows requires a reboot |
 | 💻 **System** | [Get-ScheduledTaskSummary](scripts/system/Get-ScheduledTaskSummary.ps1) | Scheduled task state and last run |
 | 💻 **System** | [Get-ServiceStatus](scripts/system/Get-ServiceStatus.ps1) | Service state and start mode |
@@ -75,6 +80,15 @@ A curated collection of standalone PowerShell scripts for daily automation: insp
 | ☁️ **Azure** | [Get-AzureSubscriptionSummary](scripts/azure/Get-AzureSubscriptionSummary.ps1) | Accessible subscriptions |
 | ☁️ **Azure** | [Get-AzureResourceLock](scripts/azure/Get-AzureResourceLock.ps1) | Resource locks |
 | ☁️ **Azure** | [Get-AzureVMSizeRecommendation](scripts/azure/Get-AzureVMSizeRecommendation.ps1) | Available VM sizes by location |
+| ☁️ **Azure** | [Get-AzureMetricSummary](scripts/azure/Get-AzureMetricSummary.ps1) | Azure Monitor metrics by resource |
+| ☁️ **Azure** | [Get-AzureActivityLog](scripts/azure/Get-AzureActivityLog.ps1) | Azure Activity Log entries |
+| ☁️ **AWS** | [Test-AWSConnectivity](scripts/aws/Test-AWSConnectivity.ps1) | Verify AWS connectivity and identity |
+| ☁️ **AWS** | [Get-AWSEC2Status](scripts/aws/Get-AWSEC2Status.ps1) | AWS EC2 instance state |
+| ☁️ **AWS** | [Get-AWSS3Bucket](scripts/aws/Get-AWSS3Bucket.ps1) | AWS S3 buckets with creation date |
+| 🐳 **Containers** | [Get-DockerContainerStatus](scripts/containers/Get-DockerContainerStatus.ps1) | Docker container status |
+| 🐳 **Containers** | [Test-DockerConnectivity](scripts/containers/Test-DockerConnectivity.ps1) | Docker daemon connectivity |
+| 🏢 **Microsoft 365** | [Test-M365Connectivity](scripts/m365/Test-M365Connectivity.ps1) | Exchange Online / M365 connectivity |
+| 🏢 **Microsoft 365** | [Get-ExchangeMailboxSummary](scripts/m365/Get-ExchangeMailboxSummary.ps1) | Exchange Online mailboxes |
 | 🔊 **Audio** | [Convert-TextToSpeech](scripts/media/Convert-TextToSpeech.ps1) | Creates WAV with Windows SAPI voice |
 
 ---

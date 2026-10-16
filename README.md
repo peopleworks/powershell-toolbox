@@ -1,6 +1,6 @@
 # ⚡ PowerShell Toolbox
 
-**64 scripts · 17 categorías · documentación en español e inglés · Licencia MIT**
+**81 scripts · 20 categorías · documentación en español e inglés · Licencia MIT**
 
 Una colección curada de scripts de PowerShell para tareas de automatización diaria: inspeccionar archivos, diagnosticar redes, revisar seguridad, administrar usuarios, respaldar datos, monitorear energía, impresión, IIS y mucho más. Cada herramienta se ejecuta por separado; no hay instalador ni módulo obligatorio.
 
@@ -35,6 +35,11 @@ Una colección curada de scripts de PowerShell para tareas de automatización di
 | 🔋 **Energía** | [Get-PowerStatus](scripts/power/Get-PowerStatus.ps1) | Batería, plan de energía y dispositivos USB |
 | 🖨️ **Impresión** | [Get-PrinterQueue](scripts/printing/Get-PrinterQueue.ps1) | Impresoras y trabajos pendientes |
 | 🌐 **IIS** | [Get-IisSiteStatus](scripts/iis/Get-IisSiteStatus.ps1) | Sitios y grupos de aplicaciones de IIS |
+| 🌐 **IIS** | [Get-IISWebsiteLogs](scripts/iis/Get-IISWebsiteLogs.ps1) | Analiza logs W3C de IIS por código de estado |
+| 🌐 **IIS** | [Get-IISPerformanceSummary](scripts/iis/Get-IISPerformanceSummary.ps1) | Contadores de rendimiento de IIS |
+| 🌐 **IIS** | [Get-IISErrorAnalysis](scripts/iis/Get-IISErrorAnalysis.ps1) | Análisis de errores 4xx y 5xx en logs de IIS |
+| 🌐 **IIS** | [Get-IISAppPoolStatus](scripts/iis/Get-IISAppPoolStatus.ps1) | Estado de grupos de aplicaciones de IIS |
+| 🌐 **IIS** | [Get-IISSiteBindings](scripts/iis/Get-IISSiteBindings.ps1) | Enlaces y sitios de IIS |
 | 💻 **Sistema** | [Get-PendingReboot](scripts/system/Get-PendingReboot.ps1) | Detecta si Windows requiere reinicio |
 | 💻 **Sistema** | [Get-ScheduledTaskSummary](scripts/system/Get-ScheduledTaskSummary.ps1) | Estado y última ejecución de tareas programadas |
 | 💻 **Sistema** | [Get-ServiceStatus](scripts/system/Get-ServiceStatus.ps1) | Estado y modo de inicio de servicios |
@@ -75,6 +80,15 @@ Una colección curada de scripts de PowerShell para tareas de automatización di
 | ☁️ **Azure** | [Get-AzureSubscriptionSummary](scripts/azure/Get-AzureSubscriptionSummary.ps1) | Suscripciones accesibles |
 | ☁️ **Azure** | [Get-AzureResourceLock](scripts/azure/Get-AzureResourceLock.ps1) | Bloqueos de recursos |
 | ☁️ **Azure** | [Get-AzureVMSizeRecommendation](scripts/azure/Get-AzureVMSizeRecommendation.ps1) | Tamaños de VM disponibles por ubicación |
+| ☁️ **Azure** | [Get-AzureMetricSummary](scripts/azure/Get-AzureMetricSummary.ps1) | Métricas de Azure Monitor por recurso |
+| ☁️ **Azure** | [Get-AzureActivityLog](scripts/azure/Get-AzureActivityLog.ps1) | Entradas del registro de actividad de Azure |
+| ☁️ **AWS** | [Test-AWSConnectivity](scripts/aws/Test-AWSConnectivity.ps1) | Verifica conectividad e identidad de AWS |
+| ☁️ **AWS** | [Get-AWSEC2Status](scripts/aws/Get-AWSEC2Status.ps1) | Estado de instancias EC2 de AWS |
+| ☁️ **AWS** | [Get-AWSS3Bucket](scripts/aws/Get-AWSS3Bucket.ps1) | Cubos S3 de AWS con fecha de creación |
+| 🐳 **Contenedores** | [Get-DockerContainerStatus](scripts/containers/Get-DockerContainerStatus.ps1) | Estado de contenedores Docker |
+| 🐳 **Contenedores** | [Test-DockerConnectivity](scripts/containers/Test-DockerConnectivity.ps1) | Conectividad al demonio de Docker |
+| 🏢 **Microsoft 365** | [Test-M365Connectivity](scripts/m365/Test-M365Connectivity.ps1) | Conectividad a Exchange Online / M365 |
+| 🏢 **Microsoft 365** | [Get-ExchangeMailboxSummary](scripts/m365/Get-ExchangeMailboxSummary.ps1) | Buzones de Exchange Online |
 | 🔊 **Audio** | [Convert-TextToSpeech](scripts/media/Convert-TextToSpeech.ps1) | Crea WAV con voz SAPI de Windows |
 
 ---

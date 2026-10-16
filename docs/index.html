@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#081525">
-  <meta name="description" content="64 scripts de PowerShell para automatización diaria: archivos, red, seguridad, identidad, eventos, respaldo, energía, impresión, IIS, bases de datos, Azure y más.">
+  <meta name="description" content="81 scripts de PowerShell para automatización diaria: archivos, red, seguridad, identidad, eventos, respaldo, energía, impresión, IIS, bases de datos, Azure, AWS, Active Directory, contenedores y Microsoft 365.">
   <title>PowerShell Toolbox · scripts que resuelven trabajo real</title>
   <style>
     :root { color-scheme: dark; --bg:#081525; --panel:#10243a; --line:#294660; --text:#edf6ff; --muted:#a5bdd0; --mint:#63e1c0; --blue:#86b8ff; --orange:#ffca86; }
@@ -87,9 +87,9 @@
         <div>
           <div class="eyebrow" data-es="Código práctico · sin datos de clientes" data-en="Practical code · no customer data">Código práctico · sin datos de clientes</div>
           <h1 data-es="PowerShell que <span>resuelve</span> trabajo real." data-en="PowerShell that <span>gets work done.</span>">PowerShell que <span>resuelve</span> trabajo real.</h1>
-          <p class="lead" data-es="Una caja de herramientas para archivos, red, seguridad, identidad, eventos, respaldo, energía, impresión, IIS, bases de datos, Azure y automatización. Scripts independientes, ejemplos claros y código listo para adaptar." data-en="A toolbox for files, networks, security, identity, events, backup, power, printing, IIS, databases, Azure, and automation. Standalone scripts, clear examples, and code ready to adapt.">Una caja de herramientas para archivos, red, seguridad, identidad, eventos, respaldo, energía, impresión, IIS, bases de datos, Azure y automatización. Scripts independientes, ejemplos claros y código listo para adaptar.</p>
+          <p class="lead" data-es="Una caja de herramientas para archivos, red, seguridad, identidad, eventos, respaldo, energía, impresión, IIS, bases de datos, Azure, AWS, Active Directory, contenedores y Microsoft 365. Scripts independientes, ejemplos claros y código listo para adaptar." data-en="A toolbox for files, networks, security, identity, events, backup, power, printing, IIS, databases, Azure, AWS, Active Directory, containers, and Microsoft 365. Standalone scripts, clear examples, and code ready to adapt.">Una caja de herramientas para archivos, red, seguridad, identidad, eventos, respaldo, energía, impresión, IIS, bases de datos, Azure, AWS, Active Directory, contenedores y Microsoft 365. Scripts independientes, ejemplos claros y código listo para adaptar.</p>
           <div class="actions"><a class="button primary" href="#install" data-es="Ver cómo instalar ↓" data-en="See how to install ↓">Ver cómo instalar ↓</a><a class="button secondary" href="https://github.com/peopleworks/powershell-toolbox" data-es="Ver repositorio ↗" data-en="View repository ↗">Ver repositorio ↗</a></div>
-          <div class="stats"><div><strong id="scriptCount">64</strong><span data-es="scripts" data-en="scripts">scripts</span></div><div><strong id="categoryCount">17</strong><span data-es="categorías" data-en="categories">categorías</span></div><div><strong>MIT</strong><span data-es="licencia" data-en="license">licencia</span></div></div>
+          <div class="stats"><div><strong id="scriptCount">81</strong><span data-es="scripts" data-en="scripts">scripts</span></div><div><strong id="categoryCount">20</strong><span data-es="categorías" data-en="categories">categorías</span></div><div><strong>MIT</strong><span data-es="licencia" data-en="license">licencia</span></div></div>
         </div>
         <div class="terminal" aria-label="PowerShell example">
           <div class="terminal-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="terminal-title">PowerShell 7 · quick start</span></div>
@@ -107,7 +107,7 @@ Files      : {report-a.pdf, report-b.pdf, backup.pdf}</span>
       <section id="install" class="install">
         <div class="install-head">
           <h2 data-es="Primeros pasos — qué instalar" data-en="First steps — what to install">Primeros pasos — qué instalar</h2>
-          <p data-es="Configura tu entorno para ejecutar los scripts de PowerShell Toolbox, incluidos los de Azure y bases de datos." data-en="Set up your environment to run PowerShell Toolbox scripts, including Azure and database ones.">Configura tu entorno para ejecutar los scripts de PowerShell Toolbox, incluidos los de Azure y bases de datos.</p>
+          <p data-es="Configura tu entorno para ejecutar los scripts de PowerShell Toolbox, incluidos los de Azure, AWS, Active Directory, contenedores y Microsoft 365." data-en="Set up your environment to run PowerShell Toolbox scripts, including Azure, AWS, Active Directory, containers, and Microsoft 365.">Configura tu entorno para ejecutar los scripts de PowerShell Toolbox, incluidos los de Azure, AWS, Active Directory, contenedores y Microsoft 365.</p>
         </div>
         <div class="steps">
           <article class="step">
@@ -124,28 +124,34 @@ Files      : {report-a.pdf, report-b.pdf, backup.pdf}</span>
           </article>
           <article class="step">
             <div class="step-num">3</div>
-            <h3 data-es="Instalar dbatools (SQL Server)" data-en="Install dbatools (SQL Server)">Instalar dbatools (SQL Server)</h3>
-            <p data-es="Los scripts de SQL Server usan dbatools." data-en="The SQL Server scripts use dbatools.">Los scripts de SQL Server usan dbatools.</p>
-            <pre>Install-Module dbatools -Scope CurrentUser</pre>
-          </article>
-          <article class="step">
-            <div class="step-num">4</div>
             <h3 data-es="Instalar módulo Az (Azure)" data-en="Install Az module (Azure)">Instalar módulo Az (Azure)</h3>
             <p data-es="Los scripts de Azure requieren el módulo Az y una sesión autenticada con Connect-AzAccount." data-en="The Azure scripts require the Az module and an authenticated session via Connect-AzAccount.">Los scripts de Azure requieren el módulo Az y una sesión autenticada con Connect-AzAccount.</p>
             <pre>Install-Module Az -Scope CurrentUser
 Connect-AzAccount</pre>
           </article>
           <article class="step">
+            <div class="step-num">4</div>
+            <h3 data-es="Instalar dbatools (SQL Server)" data-en="Install dbatools (SQL Server)">Instalar dbatools (SQL Server)</h3>
+            <p data-es="Los scripts de SQL Server usan dbatools." data-en="The SQL Server scripts use dbatools.">Los scripts de SQL Server usan dbatools.</p>
+            <pre>Install-Module dbatools -Scope CurrentUser</pre>
+          </article>
+          <article class="step">
             <div class="step-num">5</div>
+            <h3 data-es="AWS Tools for PowerShell (opcional)" data-en="AWS Tools for PowerShell (optional)">AWS Tools for PowerShell (opcional)</h3>
+            <p data-es="Los scripts de AWS requieren AWS.Tools.Common y credenciales configuradas." data-en="The AWS scripts require AWS.Tools.Common and configured credentials.">Los scripts de AWS requieren AWS.Tools.Common y credenciales configuradas.</p>
+            <pre>Install-Module AWS.Tools.Installer -Scope CurrentUser</pre>
+          </article>
+          <article class="step">
+            <div class="step-num">6</div>
             <h3 data-es="Controladores ODBC (opcional)" data-en="ODBC drivers (optional)">Controladores ODBC (opcional)</h3>
             <p data-es="Instala los controladores ODBC de las bases de datos que quieras probar: MySQL, PostgreSQL, Oracle." data-en="Install the ODBC drivers for the databases you want to test: MySQL, PostgreSQL, Oracle.">Instala los controladores ODBC de las bases de datos que quieras probar: MySQL, PostgreSQL, Oracle.</p>
             <pre># Ejemplo: MySQL ODBC Driver 8.0
 # Descarga desde dev.mysql.com</pre>
           </article>
           <article class="step">
-            <div class="step-num">6</div>
+            <div class="step-num">7</div>
             <h3 data-es="Ejecutar un script de ejemplo" data-en="Run an example script">Ejecutar un script de ejemplo</h3>
-            <p data-es="Desde la raíz del repositorio, en PowerShell 7, prueba cualquiera de los 64 scripts." data-en="From the repository root, in PowerShell 7, try any of the 64 scripts.">Desde la raíz del repositorio, en PowerShell 7, prueba cualquiera de los 64 scripts.</p>
+            <p data-es="Desde la raíz del repositorio, en PowerShell 7, prueba cualquiera de los 81 scripts." data-en="From the repository root, in PowerShell 7, try any of the 81 scripts.">Desde la raíz del repositorio, en PowerShell 7, prueba cualquiera de los 81 scripts.</p>
             <pre>./scripts/azure/Test-AzureConnectivity.ps1</pre>
           </article>
         </div>
@@ -196,6 +202,11 @@ Connect-AzAccount</pre>
       {n:'Get-PrinterQueue',c:'printing',p:'scripts/printing/Get-PrinterQueue.ps1',es:'Impresoras instaladas y trabajos de impresión pendientes.',en:'Installed printers and pending print jobs.',r:'Windows',cmd:'./scripts/printing/Get-PrinterQueue.ps1'},
 
       {n:'Get-IisSiteStatus',c:'iis',p:'scripts/iis/Get-IisSiteStatus.ps1',es:'Sitios y grupos de aplicaciones de IIS con estado y ruta física.',en:'IIS sites and application pools with state and physical path.',r:'IIS',cmd:'./scripts/iis/Get-IisSiteStatus.ps1'},
+      {n:'Get-IISWebsiteLogs',c:'iis',p:'scripts/iis/Get-IISWebsiteLogs.ps1',es:'Analiza logs W3C de IIS por código de estado HTTP.',en:'Analyzes IIS W3C logs by HTTP status code.',r:'IIS',cmd:'./scripts/iis/Get-IISWebsiteLogs.ps1 -LogPath "C:\\inetpub\\logs\\LogFiles\\W3SVC1"'},
+      {n:'Get-IISPerformanceSummary',c:'iis',p:'scripts/iis/Get-IISPerformanceSummary.ps1',es:'Contadores de rendimiento de IIS (requests/sec, errores, bytes).',en:'IIS performance counters (requests/sec, errors, bytes).',r:'IIS',cmd:'./scripts/iis/Get-IISPerformanceSummary.ps1'},
+      {n:'Get-IISErrorAnalysis',c:'iis',p:'scripts/iis/Get-IISErrorAnalysis.ps1',es:'Análisis de errores 4xx y 5xx agrupados por URL.',en:'4xx and 5xx error analysis grouped by URL.',r:'IIS',cmd:'./scripts/iis/Get-IISErrorAnalysis.ps1 -LogPath "C:\\inetpub\\logs\\LogFiles\\W3SVC1"'},
+      {n:'Get-IISAppPoolStatus',c:'iis',p:'scripts/iis/Get-IISAppPoolStatus.ps1',es:'Estado de grupos de aplicaciones de IIS.',en:'IIS application pool state.',r:'IIS',cmd:'./scripts/iis/Get-IISAppPoolStatus.ps1'},
+      {n:'Get-IISSiteBindings',c:'iis',p:'scripts/iis/Get-IISSiteBindings.ps1',es:'Enlaces y sitios de IIS con puerto y ruta física.',en:'IIS site bindings and physical paths.',r:'IIS',cmd:'./scripts/iis/Get-IISSiteBindings.ps1'},
 
       {n:'Get-PendingReboot',c:'system',p:'scripts/system/Get-PendingReboot.ps1',es:'Detecta si Windows requiere reinicio (Windows Update, CBS, PendingFileRename).',en:'Detects if Windows requires a reboot (Windows Update, CBS, PendingFileRename).',r:'Windows',cmd:'./scripts/system/Get-PendingReboot.ps1'},
       {n:'Get-ScheduledTaskSummary',c:'system',p:'scripts/system/Get-ScheduledTaskSummary.ps1',es:'Estado, última y próxima ejecución de tareas programadas.',en:'State, last run, and next run of scheduled tasks.',r:'Windows',cmd:'./scripts/system/Get-ScheduledTaskSummary.ps1'},
@@ -242,6 +253,23 @@ Connect-AzAccount</pre>
       {n:'Get-AzureSubscriptionSummary',c:'azure',p:'scripts/azure/Get-AzureSubscriptionSummary.ps1',es:'Suscripciones de Azure accesibles.',en:'Accessible Azure subscriptions.',r:'Az module',cmd:'./scripts/azure/Get-AzureSubscriptionSummary.ps1'},
       {n:'Get-AzureResourceLock',c:'azure',p:'scripts/azure/Get-AzureResourceLock.ps1',es:'Bloqueos de recursos de Azure.',en:'Azure resource locks.',r:'Az module',cmd:'./scripts/azure/Get-AzureResourceLock.ps1 -ResourceGroupName rg-ejemplo'},
       {n:'Get-AzureVMSizeRecommendation',c:'azure',p:'scripts/azure/Get-AzureVMSizeRecommendation.ps1',es:'Tamaños de VM de Azure disponibles por ubicación.',en:'Available Azure VM sizes by location.',r:'Az module',cmd:'./scripts/azure/Get-AzureVMSizeRecommendation.ps1 -Location eastus'},
+      {n:'Get-AzureMetricSummary',c:'azure',p:'scripts/azure/Get-AzureMetricSummary.ps1',es:'Métricas de Azure Monitor por recurso y ventana de tiempo.',en:'Azure Monitor metrics by resource and time window.',r:'Az module',cmd:'./scripts/azure/Get-AzureMetricSummary.ps1 -ResourceId "/subscriptions/..." -MetricName "CpuPercentage"'},
+      {n:'Get-AzureActivityLog',c:'azure',p:'scripts/azure/Get-AzureActivityLog.ps1',es:'Entradas del registro de actividad de Azure.',en:'Azure Activity Log entries.',r:'Az module',cmd:'./scripts/azure/Get-AzureActivityLog.ps1 -HoursBack 24'},
+
+      {n:'Test-AWSConnectivity',c:'aws',p:'scripts/aws/Test-AWSConnectivity.ps1',es:'Verifica conectividad e identidad de AWS.',en:'Verify AWS connectivity and identity.',r:'AWS.Tools',cmd:'./scripts/aws/Test-AWSConnectivity.ps1 -Region us-east-1'},
+      {n:'Get-AWSEC2Status',c:'aws',p:'scripts/aws/Get-AWSEC2Status.ps1',es:'Estado de instancias EC2 de AWS.',en:'AWS EC2 instance state.',r:'AWS.Tools',cmd:'./scripts/aws/Get-AWSEC2Status.ps1 -Region us-east-1'},
+      {n:'Get-AWSS3Bucket',c:'aws',p:'scripts/aws/Get-AWSS3Bucket.ps1',es:'Cubos S3 de AWS con fecha de creación.',en:'AWS S3 buckets with creation date.',r:'AWS.Tools',cmd:'./scripts/aws/Get-AWSS3Bucket.ps1 -Region us-east-1'},
+
+      {n:'Get-DockerContainerStatus',c:'containers',p:'scripts/containers/Get-DockerContainerStatus.ps1',es:'Estado de contenedores Docker.',en:'Docker container status.',r:'Docker',cmd:'./scripts/containers/Get-DockerContainerStatus.ps1'},
+      {n:'Test-DockerConnectivity',c:'containers',p:'scripts/containers/Test-DockerConnectivity.ps1',es:'Conectividad al demonio de Docker.',en:'Docker daemon connectivity.',r:'Docker',cmd:'./scripts/containers/Test-DockerConnectivity.ps1'},
+
+      {n:'Test-M365Connectivity',c:'m365',p:'scripts/m365/Test-M365Connectivity.ps1',es:'Conectividad a Exchange Online / Microsoft 365.',en:'Exchange Online / M365 connectivity.',r:'ExchangeOnlineManagement',cmd:'./scripts/m365/Test-M365Connectivity.ps1'},
+      {n:'Get-ExchangeMailboxSummary',c:'m365',p:'scripts/m365/Get-ExchangeMailboxSummary.ps1',es:'Buzones de Exchange Online con tamaño y elementos.',en:'Exchange Online mailboxes with size and item count.',r:'ExchangeOnlineManagement',cmd:'./scripts/m365/Get-ExchangeMailboxSummary.ps1 -MaxResults 50'},
+
+      {n:'Get-LocalUserSummary',c:'identity',p:'scripts/identity/Get-LocalUserSummary.ps1',es:'Usuarios locales, estado, último logon y grupos a los que pertenecen.',en:'Local users, state, last logon, and group memberships.',r:'Windows',cmd:'./scripts/identity/Get-LocalUserSummary.ps1'},
+      {n:'Get-ADUserSummary',c:'identity',p:'scripts/identity/Get-ADUserSummary.ps1',es:'Usuarios de Active Directory con propiedades clave.',en:'Active Directory users with key properties.',r:'AD RSAT',cmd:'./scripts/identity/Get-ADUserSummary.ps1 -Domain ejemplo.local'},
+      {n:'Get-ADGroupMembers',c:'identity',p:'scripts/identity/Get-ADGroupMembers.ps1',es:'Miembros de un grupo de Active Directory.',en:'Members of an Active Directory group.',r:'AD RSAT',cmd:'./scripts/identity/Get-ADGroupMembers.ps1 -GroupName Administradores'},
+      {n:'Test-ADAccountLockout',c:'identity',p:'scripts/identity/Test-ADAccountLockout.ps1',es:'Verifica si una cuenta de AD está bloqueada.',en:'Checks if an AD account is locked out.',r:'AD RSAT',cmd:'./scripts/identity/Test-ADAccountLockout.ps1 -SamAccountName usuario_ejemplo'},
 
       {n:'Convert-TextToSpeech',c:'media',p:'scripts/media/Convert-TextToSpeech.ps1',es:'Crea un WAV con una voz Windows SAPI instalada.',en:'Creates a WAV with an installed Windows SAPI voice.',r:'WinPS 5.1',cmd:'powershell.exe -File ./scripts/media/Convert-TextToSpeech.ps1 -Text "Hello" -Output ./hello.wav'}
     ];
@@ -264,6 +292,9 @@ Connect-AzAccount</pre>
       data:{es:'Datos',en:'Data'},
       database:{es:'Base de datos',en:'Database'},
       azure:{es:'Azure',en:'Azure'},
+      aws:{es:'AWS',en:'AWS'},
+      containers:{es:'Contenedores',en:'Containers'},
+      m365:{es:'Microsoft 365',en:'Microsoft 365'},
       media:{es:'Audio',en:'Audio'}
     };
     let language = 'es', category = 'all';
