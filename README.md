@@ -6,6 +6,12 @@ Una colección curada de scripts de PowerShell para tareas de automatización di
 
 [🇺🇸 English documentation](README.en.md) · [📄 Licencia MIT](LICENSE) · [🤝 Cómo contribuir](CONTRIBUTING.md)
 
+<p align="center">
+  <a href="https://peopleworks.github.io/powershell-toolbox/" target="_blank">
+    <img src="https://custom-icon-badges.demolab.com/badge/%F0%9F%93%9D%20Cat%C3%A1logo%20interactivo-Ver%20en%20GitHub%20Pages-081525?style=for-the-badge&labelColor=081525&color=63e1c0&logo=github" alt="Catálogo interactivo en GitHub Pages">
+  </a>
+</p>
+
 ---
 
 ## 📦 Catálogo de herramientas

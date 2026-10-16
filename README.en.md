@@ -6,6 +6,12 @@ A curated collection of standalone PowerShell scripts for daily automation: insp
 
 [🇪🇸 Documentación en español](README.md) · [📄 MIT License](LICENSE) · [🤝 Contributing](CONTRIBUTING.md)
 
+<p align="center">
+  <a href="https://peopleworks.github.io/powershell-toolbox/" target="_blank">
+    <img src="https://custom-icon-badges.demolab.com/badge/%F0%9F%93%9D%20Interactive%20Catalog-View%20on%20GitHub%20Pages-081525?style=for-the-badge&labelColor=081525&color=63e1c0&logo=github" alt="Interactive Catalog on GitHub Pages">
+  </a>
+</p>
+
 ---
 
 ## 📦 Tool catalog
