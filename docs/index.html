@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#081525">
+  <meta name="description" content="21 scripts PowerShell prácticos para archivos, red, seguridad, imágenes, datos y automatización.">
+  <title>PowerShell Toolbox · scripts que resuelven trabajo real</title>
+  <style>
+    :root { color-scheme: dark; --bg:#081525; --panel:#10243a; --line:#294660; --text:#edf6ff; --muted:#a5bdd0; --mint:#63e1c0; --blue:#86b8ff; --orange:#ffca86; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font:16px/1.55 "Segoe UI",Inter,Arial,sans-serif; color:var(--text); background:radial-gradient(circle at 15% 0%,#173d5b 0%,transparent 36%),var(--bg); }
+    a { color:inherit; }
+    .wrap { max-width:1200px; margin:auto; padding:0 28px; }
+    header { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:24px 0; }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:-.025em; text-decoration:none; font-size:21px; }
+    .brand-mark { display:grid; place-items:center; width:38px; height:38px; border-radius:11px; color:#061b1b; background:var(--mint); font:800 20px Consolas,monospace; box-shadow:0 0 32px #63e1c04a; }
+    nav { display:flex; gap:14px; align-items:center; }
+    nav a { text-decoration:none; color:var(--muted); font-weight:600; }
+    nav a:hover { color:var(--mint); }
+    button { font:inherit; cursor:pointer; }
+    #lang { border:1px solid var(--line); border-radius:10px; padding:7px 11px; color:var(--text); background:#16334e; font-weight:700; }
+    .hero { display:grid; grid-template-columns:1.1fr .9fr; align-items:center; gap:52px; padding:72px 0 86px; }
+    .eyebrow { color:var(--mint); text-transform:uppercase; font-size:13px; font-weight:800; letter-spacing:.16em; }
+    h1 { font-size:clamp(45px,6vw,76px); line-height:1.05; letter-spacing:-.065em; margin:20px 0 24px; }
+    h1 span { color:var(--mint); }
+    .lead { color:#c6d7e8; font-size:20px; max-width:610px; margin:0 0 30px; }
+    .actions { display:flex; gap:12px; flex-wrap:wrap; }
+    .button { display:inline-flex; align-items:center; justify-content:center; text-decoration:none; border-radius:12px; padding:13px 19px; font-weight:800; border:1px solid var(--line); }
+    .button.primary { background:var(--mint); color:#052322; border-color:var(--mint); box-shadow:0 10px 32px #63e1c02b; }
+    .button.secondary { background:#173049; color:var(--text); }
+    .terminal { border:1px solid #42627d; border-radius:18px; background:#06101cf2; box-shadow:0 28px 70px #0007; overflow:hidden; transform:rotate(1deg); }
+    .terminal-top { border-bottom:1px solid #27445e; padding:13px 17px; display:flex; align-items:center; gap:7px; color:#819bb0; font-size:13px; }
+    .dot { height:9px; width:9px; border-radius:50%; background:#ff7979; }
+    .dot:nth-child(2) { background:#ffcf69; }.dot:nth-child(3) { background:#68dba6; }
+    .terminal-title { margin-left:12px; }
+    pre { margin:0; padding:25px; white-space:pre-wrap; overflow-wrap:anywhere; font:15px/1.8 Consolas,"Cascadia Code",monospace; color:#d6e7f6; }
+    .prompt { color:var(--mint); }.output { color:#9fc7e9; }.success { color:#80d7ab; }
+    .stats { display:flex; gap:28px; margin-top:37px; color:var(--muted); font-size:14px; }
+    .stats strong { display:block; color:var(--text); font-size:25px; line-height:1.1; }
+    section.catalog { padding:42px 0 100px; border-top:1px solid #28465e; }
+    .section-head { display:flex; align-items:end; justify-content:space-between; gap:18px; margin-bottom:25px; }
+    h2 { font-size:clamp(31px,4vw,45px); letter-spacing:-.04em; margin:0; }
+    .section-head p { margin:8px 0 0; color:var(--muted); }
+    .search { width:min(100%,330px); border-radius:12px; border:1px solid #45627e; background:#122b43; color:var(--text); padding:13px 16px; outline:none; }
+    .search:focus { border-color:var(--mint); box-shadow:0 0 0 3px #63e1c02b; }
+    .filters { display:flex; flex-wrap:wrap; gap:9px; margin-bottom:27px; }
+    .filter { color:#c5d7e7; background:#143049; border:1px solid #36536e; border-radius:100px; padding:8px 14px; font-size:14px; }
+    .filter.active { color:#052322; background:var(--mint); border-color:var(--mint); font-weight:800; }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+    .card { display:flex; flex-direction:column; min-height:250px; padding:23px; border:1px solid #2e4a64; border-radius:17px; background:linear-gradient(155deg,#142e46,#0e2135); transition:transform .2s,border-color .2s; }
+    .card:hover { transform:translateY(-4px); border-color:var(--mint); }
+    .category { color:var(--orange); font-size:12px; letter-spacing:.12em; font-weight:800; text-transform:uppercase; }
+    .card h3 { margin:12px 0 7px; font-size:20px; overflow-wrap:anywhere; }
+    .card p { margin:0; color:var(--muted); font-size:14px; flex:1; }
+    .requirement { color:#91a8bc; font-size:12px; margin-top:18px; }
+    .card-actions { display:flex; gap:8px; margin-top:14px; }
+    .card-actions a,.card-actions button { text-decoration:none; color:var(--text); border:1px solid #42607a; border-radius:8px; background:#1a3a55; padding:7px 10px; font-size:13px; font-weight:700; }
+    .card-actions a:hover,.card-actions button:hover { border-color:var(--mint); }
+    .empty { color:var(--muted); padding:30px 0; }
+    footer { border-top:1px solid #28465e; padding:27px 0 40px; color:var(--muted); font-size:14px; }
+    footer a { color:var(--mint); }
+    @media (max-width:900px) { .hero { grid-template-columns:1fr; padding:40px 0 60px; }.terminal { transform:none; }.grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width:640px) { .wrap { padding:0 18px; } nav a { display:none; }.hero { gap:30px; }.grid { grid-template-columns:1fr; }.section-head { display:block; }.search { margin-top:20px; width:100%; }.stats { gap:18px; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#top"><span class="brand-mark">&gt;_</span> PowerShell Toolbox</a>
+      <nav><a href="#catalog" data-es="Explorar" data-en="Explore">Explorar</a><a href="https://github.com/peopleworks/powershell-toolbox">GitHub ↗</a><button id="lang" type="button" aria-label="Switch language">EN</button></nav>
+    </header>
+    <main id="top">
+      <div class="hero">
+        <div>
+          <div class="eyebrow" data-es="Código práctico · sin datos de clientes" data-en="Practical code · no customer data">Código práctico · sin datos de clientes</div>
+          <h1 data-es="PowerShell que <span>resuelve</span> trabajo real." data-en="PowerShell that <span>gets work done.</span>">PowerShell que <span>resuelve</span> trabajo real.</h1>
+          <p class="lead" data-es="Una caja de herramientas para archivos, red, seguridad, imágenes y automatización. Scripts independientes, ejemplos claros y código listo para adaptar." data-en="A toolbox for files, networks, security, images and automation. Standalone scripts, clear examples, and code ready to adapt.">Una caja de herramientas para archivos, red, seguridad, imágenes y automatización. Scripts independientes, ejemplos claros y código listo para adaptar.</p>
+          <div class="actions"><a class="button primary" href="#catalog" data-es="Explorar herramientas ↓" data-en="Explore tools ↓">Explorar herramientas ↓</a><a class="button secondary" href="https://github.com/peopleworks/powershell-toolbox" data-es="Ver repositorio ↗" data-en="View repository ↗">Ver repositorio ↗</a></div>
+          <div class="stats"><div><strong id="scriptCount">21</strong><span data-es="scripts" data-en="scripts">scripts</span></div><div><strong id="categoryCount">8</strong><span data-es="categorías" data-en="categories">categorías</span></div><div><strong>MIT</strong><span data-es="licencia" data-en="license">licencia</span></div></div>
+        </div>
+        <div class="terminal" aria-label="PowerShell example">
+          <div class="terminal-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="terminal-title">PowerShell 7 · quick start</span></div>
+          <pre><span class="prompt">PS&gt;</span> ./scripts/files/Find-DuplicateFiles.ps1 -Path ./downloads
+
+<span class="output">Copies     : 3
+BytesEach  : 1048576
+Sha256     : 8F2A…
+Files      : {report-a.pdf, report-b.pdf, backup.pdf}</span>
+
+<span class="success">✓ Read-only · no deletions</span></pre>
+        </div>
+      </div>
+      <section id="catalog" class="catalog">
+        <div class="section-head"><div><h2 data-es="Encuentra tu próxima herramienta" data-en="Find your next tool">Encuentra tu próxima herramienta</h2><p data-es="Filtra por tema o busca por nombre. Cada script se ejecuta por separado." data-en="Filter by topic or search by name. Every script runs on its own.">Filtra por tema o busca por nombre. Cada script se ejecuta por separado.</p></div><input id="search" class="search" type="search" placeholder="Buscar scripts…" aria-label="Search scripts"></div>
+        <div id="filters" class="filters" role="group" aria-label="Categories"></div>
+        <div id="grid" class="grid"></div>
+        <p id="empty" class="empty" hidden data-es="No hay resultados para esta búsqueda." data-en="No tools match this search.">No hay resultados para esta búsqueda.</p>
+      </section>
+    </main>
+    <footer><span data-es="Hecho para compartir herramientas útiles, sin configuraciones ni resultados privados." data-en="Built to share useful tools, without private configuration or output.">Hecho para compartir herramientas útiles, sin configuraciones ni resultados privados.</span> · <a href="https://github.com/peopleworks/powershell-toolbox/blob/main/CONTRIBUTING.md" data-es="Contribuir" data-en="Contribute">Contribuir</a></footer>
+  </div>
+  <script>
+    const repo = 'https://github.com/peopleworks/powershell-toolbox/blob/main/';
+    const tools = [
+      {n:'Get-TextEncoding',c:'files',p:'scripts/files/Get-TextEncoding.ps1',es:'Identifica BOM Unicode y valida UTF-8 sin adivinar codificaciones antiguas.',en:'Detects Unicode BOMs and validates UTF-8 without guessing legacy encodings.',r:'PS 7+',cmd:'./scripts/files/Get-TextEncoding.ps1 -Path ./notes.txt'},
+      {n:'Get-DirectoryInventory',c:'files',p:'scripts/files/Get-DirectoryInventory.ps1',es:'Inventario de archivos con tamaños, rutas relativas y hashes opcionales.',en:'File inventory with sizes, relative paths, and optional hashes.',r:'PS 7+',cmd:'./scripts/files/Get-DirectoryInventory.ps1 -Path ./folder -IncludeHash'},
+      {n:'Find-DuplicateFiles',c:'files',p:'scripts/files/Find-DuplicateFiles.ps1',es:'Encuentra copias idénticas por tamaño y SHA-256, sin borrar nada.',en:'Finds identical copies by size and SHA-256 without deleting anything.',r:'PS 7+',cmd:'./scripts/files/Find-DuplicateFiles.ps1 -Path ./downloads'},
+      {n:'New-ArchiveFromDirectory',c:'files',p:'scripts/files/New-ArchiveFromDirectory.ps1',es:'Crea un ZIP de una carpeta, incluidos archivos ocultos.',en:'Creates a ZIP from a directory, including hidden files.',r:'PS 7+',cmd:'./scripts/files/New-ArchiveFromDirectory.ps1 -Path ./release -Output ./release.zip'},
+      {n:'Get-TcpConnections',c:'network',p:'scripts/network/Get-TcpConnections.ps1',es:'Conexiones TCP como objetos listos para filtrar y exportar.',en:'TCP connections as filterable, exportable objects.',r:'Windows',cmd:'./scripts/network/Get-TcpConnections.ps1 -State Established'},
+      {n:'Test-Endpoint',c:'network',p:'scripts/network/Test-Endpoint.ps1',es:'Comprueba DNS, TCP y HTTP sin credenciales ni cuerpo de respuesta.',en:'Checks DNS, TCP, and HTTP without credentials or response bodies.',r:'PS 7+',cmd:'./scripts/network/Test-Endpoint.ps1 -Uri https://example.org/'},
+      {n:'Compare-Png',c:'images',p:'scripts/images/Compare-Png.ps1',es:'Cuenta píxeles distintos y genera una máscara visual de cambios.',en:'Counts changed pixels and creates a visual diff.',r:'Windows',cmd:'./scripts/images/Compare-Png.ps1 -Reference ./before.png -Current ./after.png'},
+      {n:'Convert-HtmlToPng',c:'images',p:'scripts/web/Convert-HtmlToPng.ps1',es:'Convierte HTML local en PNG con Edge o Chrome headless.',en:'Turns local HTML into PNG with headless Edge or Chrome.',r:'Edge / Chrome',cmd:'./scripts/web/Convert-HtmlToPng.ps1 -Html ./page.html'},
+      {n:'Convert-DrawioToPng',c:'images',p:'scripts/images/Convert-DrawioToPng.ps1',es:'Exporta diagramas .drawio a PNG en lote.',en:'Batch exports .drawio diagrams to PNG.',r:'draw.io Desktop',cmd:'./scripts/images/Convert-DrawioToPng.ps1 -Path ./diagrams -OutputDirectory ./exports'},
+      {n:'Test-GitStagedContent',c:'security',p:'scripts/security/Test-GitStagedContent.ps1',es:'Busca posibles secretos y rutas locales en el índice de Git sin mostrar valores.',en:'Finds likely secrets and local paths in staged Git content without printing values.',r:'Git',cmd:'./scripts/security/Test-GitStagedContent.ps1 -Repository .'},
+      {n:'Get-BrowserExtensions',c:'security',p:'scripts/security/Get-BrowserExtensions.ps1',es:'Lista extensiones de Chrome y Edge por perfil sin leer el historial.',en:'Lists Chrome and Edge extensions by profile without reading history.',r:'Windows',cmd:'./scripts/security/Get-BrowserExtensions.ps1'},
+      {n:'Get-BrowserPolicies',c:'security',p:'scripts/security/Get-BrowserPolicies.ps1',es:'Inspecciona políticas de Chrome y Edge en el registro.',en:'Inspects Chrome and Edge policies in the registry.',r:'Windows',cmd:'./scripts/security/Get-BrowserPolicies.ps1'},
+      {n:'Get-StartupEntries',c:'security',p:'scripts/system/Get-StartupEntries.ps1',es:'Revisa entradas Run y tareas programadas de interés.',en:'Reviews Run entries and selected scheduled tasks.',r:'Windows',cmd:'./scripts/system/Get-StartupEntries.ps1'},
+      {n:'Find-DuplicateCSharpClasses',c:'code',p:'scripts/code/Find-DuplicateCSharpClasses.ps1',es:'Señala nombres de clases C# repetidos para revisión.',en:'Flags repeated C# class names for review.',r:'PS 7+',cmd:'./scripts/code/Find-DuplicateCSharpClasses.ps1 -Path ./src'},
+      {n:'Test-OdbcConnection',c:'data',p:'scripts/data/Test-OdbcConnection.ps1',es:'Prueba un DSN sin imprimir credenciales ni filas.',en:'Tests a DSN without printing credentials or rows.',r:'ODBC',cmd:'./scripts/data/Test-OdbcConnection.ps1 -Dsn ExampleDsn'},
+      {n:'Get-CrystalReportInventory',c:'data',p:'scripts/reports/Get-CrystalReportInventory.ps1',es:'Inventario de parámetros, tablas y subreportes .rpt.',en:'Inventories .rpt parameters, tables, and subreports.',r:'Crystal runtime',cmd:'./scripts/reports/Get-CrystalReportInventory.ps1 -Path ./reports'},
+      {n:'Wait-ProcessExit',c:'system',p:'scripts/system/Wait-ProcessExit.ps1',es:'Espera a que termine un proceso sin cerrarlo.',en:'Waits for a process to exit without terminating it.',r:'PS 7+',cmd:'./scripts/system/Wait-ProcessExit.ps1 -Name msbuild'},
+      {n:'Invoke-LoggedProcess',c:'system',p:'scripts/system/Invoke-LoggedProcess.ps1',es:'Ejecuta un proceso con logs de salida y error separados y timeout.',en:'Runs a process with separate stdout and stderr logs and a timeout.',r:'PS 7+',cmd:'./scripts/system/Invoke-LoggedProcess.ps1 -FilePath dotnet -ArgumentList @("--info") -OutputDirectory ./.local/logs'},
+      {n:'Wait-CommandSuccess',c:'system',p:'scripts/system/Wait-CommandSuccess.ps1',es:'Reintenta una comprobación booleana hasta que funcione.',en:'Retries a Boolean check until it succeeds.',r:'PS 7+',cmd:'./scripts/system/Wait-CommandSuccess.ps1 -Check { Test-Path ./ready.flag }'},
+      {n:'Invoke-WithMutex',c:'system',p:'scripts/system/Invoke-WithMutex.ps1',es:'Serializa tareas entre procesos con un mutex nombrado.',en:'Serializes tasks across processes with a named mutex.',r:'PS 7+',cmd:'./scripts/system/Invoke-WithMutex.ps1 -Name build -Action { dotnet build }'},
+      {n:'Convert-TextToSpeech',c:'media',p:'scripts/media/Convert-TextToSpeech.ps1',es:'Crea un WAV con una voz Windows SAPI instalada.',en:'Creates a WAV with an installed Windows SAPI voice.',r:'WinPS 5.1',cmd:'powershell.exe -File ./scripts/media/Convert-TextToSpeech.ps1 -Text "Hello" -Output ./hello.wav'}
+    ];
+    const labels = {all:{es:'Todos',en:'All'},files:{es:'Archivos',en:'Files'},network:{es:'Red',en:'Network'},images:{es:'Imágenes',en:'Images'},security:{es:'Seguridad',en:'Security'},code:{es:'Código',en:'Code'},data:{es:'Datos',en:'Data'},system:{es:'Procesos',en:'Processes'},media:{es:'Audio',en:'Audio'}};
+    let language = 'es', category = 'all';
+    const grid = document.getElementById('grid'), filters = document.getElementById('filters'), search = document.getElementById('search');
+    document.getElementById('scriptCount').textContent = tools.length;
+    document.getElementById('categoryCount').textContent = Object.keys(labels).length - 1;
+    function render() {
+      document.documentElement.lang = language;
+      document.querySelectorAll('[data-es][data-en]').forEach(el => { el.innerHTML = el.dataset[language]; });
+      search.placeholder = language === 'es' ? 'Buscar scripts…' : 'Search scripts…';
+      document.getElementById('lang').textContent = language === 'es' ? 'EN' : 'ES';
+      filters.replaceChildren();
+      for (const key of Object.keys(labels)) {
+        const button = document.createElement('button'); button.type = 'button'; button.className = 'filter' + (key === category ? ' active' : '');
+        button.textContent = labels[key][language]; button.setAttribute('aria-pressed', key === category ? 'true' : 'false');
+        button.onclick = () => { category = key; render(); }; filters.append(button);
+      }
+      const query = search.value.trim().toLowerCase();
+      const shown = tools.filter(item => (category === 'all' || item.c === category) && [item.n,item.es,item.en,labels[item.c].es,labels[item.c].en].join(' ').toLowerCase().includes(query));
+      grid.replaceChildren();
+      for (const item of shown) {
+        const card = document.createElement('article'); card.className = 'card';
+        const tag = document.createElement('div'); tag.className = 'category'; tag.textContent = labels[item.c][language];
+        const title = document.createElement('h3'); title.textContent = item.n;
+        const desc = document.createElement('p'); desc.textContent = item[language];
+        const requirement = document.createElement('div'); requirement.className = 'requirement'; requirement.textContent = item.r;
+        const actions = document.createElement('div'); actions.className = 'card-actions';
+        const source = document.createElement('a'); source.href = repo + item.p; source.textContent = language === 'es' ? 'Ver código ↗' : 'View code ↗'; source.target = '_blank'; source.rel = 'noopener';
+        const copy = document.createElement('button'); copy.type = 'button'; copy.textContent = language === 'es' ? 'Copiar ejemplo' : 'Copy example';
+        copy.onclick = async () => { try { await navigator.clipboard.writeText(item.cmd); copy.textContent = language === 'es' ? 'Copiado ✓' : 'Copied ✓'; setTimeout(() => copy.textContent = language === 'es' ? 'Copiar ejemplo' : 'Copy example', 1800); } catch { copy.textContent = language === 'es' ? 'Abre con HTTPS' : 'Use HTTPS'; } };
+        actions.append(source,copy); card.append(tag,title,desc,requirement,actions); grid.append(card);
+      }
+      document.getElementById('empty').hidden = shown.length !== 0;
+    }
+    search.addEventListener('input', render);
+    document.getElementById('lang').addEventListener('click', () => { language = language === 'es' ? 'en' : 'es'; render(); });
+    render();
+  </script>
+</body>
+</html>

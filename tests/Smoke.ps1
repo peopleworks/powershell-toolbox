@@ -26,6 +26,41 @@ try {
     $empty = & (Join-Path $root 'scripts/files/Get-TextEncoding.ps1') -Path $emptyFile
     if ($empty.Encoding -ne 'Unknown') { throw 'Empty file was assigned an encoding.' }
 
+    $first = Join-Path $testDirectory 'first.txt'; $created += $first
+    $second = Join-Path $testDirectory 'second.txt'; $created += $second
+    [IO.File]::WriteAllText($first, 'same content')
+    [IO.File]::WriteAllText($second, 'same content')
+    $duplicates = @(& (Join-Path $root 'scripts/files/Find-DuplicateFiles.ps1') -Path $testDirectory)
+    if (-not ($duplicates | Where-Object { $_.Copies -eq 2 -and $first -in $_.Files -and $second -in $_.Files })) {
+        throw 'Duplicate-file scan missed identical files.'
+    }
+    $inventory = @(& (Join-Path $root 'scripts/files/Get-DirectoryInventory.ps1') -Path $testDirectory -IncludeHash)
+    if (-not ($inventory | Where-Object { $_.RelativePath -eq 'first.txt' -and $_.Sha256.Length -eq 64 })) {
+        throw 'Directory inventory did not produce a hash.'
+    }
+    $archive = "$testDirectory.zip"; $created += $archive
+    & (Join-Path $root 'scripts/files/New-ArchiveFromDirectory.ps1') -Path $testDirectory -Output $archive | Out-Null
+    if (-not (Test-Path -LiteralPath $archive -PathType Leaf)) { throw 'ZIP archive was not created.' }
+
+    $classOne = Join-Path $testDirectory 'One.cs'; $created += $classOne
+    $classTwo = Join-Path $testDirectory 'Two.cs'; $created += $classTwo
+    [IO.File]::WriteAllText($classOne, 'public class Shared { }')
+    [IO.File]::WriteAllText($classTwo, 'internal class Shared { }')
+    $classes = @(& (Join-Path $root 'scripts/code/Find-DuplicateCSharpClasses.ps1') -Path $testDirectory)
+    if (-not ($classes | Where-Object { $_.Class -eq 'Shared' -and $_.Occurrences -eq 2 })) {
+        throw 'Duplicate-class scan missed the synthetic class.'
+    }
+
+    $wait = & (Join-Path $root 'scripts/system/Wait-CommandSuccess.ps1') -Check { $true } -TimeoutSeconds 0
+    if (-not $wait.Succeeded -or $wait.Attempts -ne 1) { throw 'Command retry failed its immediate-success case.' }
+    $mutexValue = & (Join-Path $root 'scripts/system/Invoke-WithMutex.ps1') -Name toolbox-smoke -Action { 'mutex-ok' }
+    if ($mutexValue -ne 'mutex-ok') { throw 'Mutex did not run the action.' }
+    $processResult = & (Join-Path $root 'scripts/system/Invoke-LoggedProcess.ps1') -FilePath (Get-Command pwsh).Source -ArgumentList @('-NoProfile', '-Command', 'Write-Output process-ok') -OutputDirectory $testDirectory
+    $created += $processResult.StandardOutput, $processResult.StandardError
+    if ($processResult.ExitCode -ne 0 -or (Get-Content -LiteralPath $processResult.StandardOutput -Raw) -notmatch 'process-ok') {
+        throw 'Process logging did not capture stdout.'
+    }
+
     if ($IsWindows) {
         Add-Type -AssemblyName System.Drawing
         $beforePath = Join-Path $testDirectory 'before.png'; $created += $beforePath
@@ -46,7 +81,7 @@ try {
         if (-not (Test-Path -LiteralPath $diffPath -PathType Leaf)) { throw 'Visual diff was not created.' }
     }
 
-    "OK: parsed $($scripts.Count) scripts; encoding and image checks passed."
+    "OK: parsed $($scripts.Count) scripts; synthetic file, process and image checks passed."
 } finally {
     foreach ($file in $created) {
         if (Test-Path -LiteralPath $file) { Remove-Item -LiteralPath $file -Force }

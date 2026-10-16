@@ -1,0 +1,22 @@
+name: Script checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Run synthetic checks
+        shell: pwsh
+        run: ./tests/Smoke.ps1
+      - name: Review staged content
+        shell: pwsh
+        run: ./scripts/security/Test-GitStagedContent.ps1 -Repository . -FailOnFindings
