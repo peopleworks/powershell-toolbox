@@ -1,6 +1,6 @@
 # ⚡ PowerShell Toolbox
 
-**81 scripts · 20 categories · Spanish and English documentation · MIT License**
+**100 scripts · 20 categories · Spanish and English documentation · MIT License**
 
 A curated collection of standalone PowerShell scripts for daily automation: inspecting files, diagnosing networks, reviewing security, managing users, backing up data, monitoring power, printing, IIS, and much more. Each tool runs independently; no installer or module is required.
 
@@ -90,6 +90,25 @@ A curated collection of standalone PowerShell scripts for daily automation: insp
 | 🏢 **Microsoft 365** | [Test-M365Connectivity](scripts/m365/Test-M365Connectivity.ps1) | Exchange Online / M365 connectivity |
 | 🏢 **Microsoft 365** | [Get-ExchangeMailboxSummary](scripts/m365/Get-ExchangeMailboxSummary.ps1) | Exchange Online mailboxes |
 | 🔊 **Audio** | [Convert-TextToSpeech](scripts/media/Convert-TextToSpeech.ps1) | Creates WAV with Windows SAPI voice |
+| 📊 **Monitor** | [Test-HttpAttack](scripts/monitor/Test-HttpAttack.ps1) | Detect HTTP attack patterns from IIS logs |
+| 📊 **Monitor** | [Get-PortScanDetection](scripts/monitor/Get-PortScanDetection.ps1) | Detect possible port scanning activity |
+| 📊 **Monitor** | [Test-BruteForceAttempt](scripts/monitor/Test-BruteForceAttempt.ps1) | Detect brute-force login attempts |
+| 📊 **Monitor** | [Get-SuspiciousProcess](scripts/monitor/Get-SuspiciousProcess.ps1) | Processes with suspicious characteristics |
+| 📊 **Monitor** | [Get-OpenPorts](scripts/monitor/Get-OpenPorts.ps1) | Open TCP/UDP ports on local computer |
+| 📊 **Monitor** | [Test-FailedLogins](scripts/monitor/Test-FailedLogins.ps1) | Failed login events from Security log |
+| 📊 **Monitor** | [Get-NetworkAnomaly](scripts/monitor/Get-NetworkAnomaly.ps1) | Anomalous network connections |
+| 📋 **Logs** | [Get-WindowsEventAnalysis](scripts/logs/Get-WindowsEventAnalysis.ps1) | Analyze Windows events by source and level |
+| 📋 **Logs** | [Get-IisLogHourlySummary](scripts/logs/Get-IisLogHourlySummary.ps1) | Hourly summary of IIS W3C logs |
+| 📋 **Logs** | [Get-FirewallLogAnalysis](scripts/logs/Get-FirewallLogAnalysis.ps1) | Analyze Windows Defender firewall logs |
+| 📋 **Logs** | [Get-SystemHealth](scripts/logs/Get-SystemHealth.ps1) | System health summary (CPU, memory, disk) |
+| 📋 **Logs** | [Get-LogErrorTrend](scripts/logs/Get-LogErrorTrend.ps1) | Error trend by hour |
+| 📋 **Logs** | [Get-EventLogSummary](scripts/logs/Get-EventLogSummary.ps1) | Event log summary by source |
+| 📊 **Data** | [Get-CsvSummary](scripts/data/Get-CsvSummary.ps1) | CSV file summary (columns, rows, nulls) |
+| 📄 **Reports** | [Get-HealthReport](scripts/reports/Get-HealthReport.ps1) | Consolidated system health report |
+| 💻 **System** | [Get-AutoStartAnalysis](scripts/system/Get-AutoStartAnalysis.ps1) | Windows auto-start entries analysis |
+| 🔐 **Security** | [Get-DnsCache](scripts/security/Get-DnsCache.ps1) | Local DNS resolver cache entries |
+| 🌐 **Network** | [Get-LatencyTest](scripts/network/Get-LatencyTest.ps1) | Latency test to multiple endpoints |
+| 📁 **Files** | [Get-LargeFiles](scripts/files/Get-LargeFiles.ps1) | Largest files under a directory |
 
 ---
 

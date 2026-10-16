@@ -1,6 +1,6 @@
 # ⚡ PowerShell Toolbox
 
-**81 scripts · 20 categorías · documentación en español e inglés · Licencia MIT**
+**100 scripts · 20 categorías · documentación en español e inglés · Licencia MIT**
 
 Una colección curada de scripts de PowerShell para tareas de automatización diaria: inspeccionar archivos, diagnosticar redes, revisar seguridad, administrar usuarios, respaldar datos, monitorear energía, impresión, IIS y mucho más. Cada herramienta se ejecuta por separado; no hay instalador ni módulo obligatorio.
 
@@ -90,6 +90,25 @@ Una colección curada de scripts de PowerShell para tareas de automatización di
 | 🏢 **Microsoft 365** | [Test-M365Connectivity](scripts/m365/Test-M365Connectivity.ps1) | Conectividad a Exchange Online / M365 |
 | 🏢 **Microsoft 365** | [Get-ExchangeMailboxSummary](scripts/m365/Get-ExchangeMailboxSummary.ps1) | Buzones de Exchange Online |
 | 🔊 **Audio** | [Convert-TextToSpeech](scripts/media/Convert-TextToSpeech.ps1) | Crea WAV con voz SAPI de Windows |
+| 📊 **Monitor** | [Test-HttpAttack](scripts/monitor/Test-HttpAttack.ps1) | Detecta patrones de ataque HTTP en logs IIS |
+| 📊 **Monitor** | [Get-PortScanDetection](scripts/monitor/Get-PortScanDetection.ps1) | Detecta posible escaneo de puertos |
+| 📊 **Monitor** | [Test-BruteForceAttempt](scripts/monitor/Test-BruteForceAttempt.ps1) | Detecta ataques de fuerza bruta en logons |
+| 📊 **Monitor** | [Get-SuspiciousProcess](scripts/monitor/Get-SuspiciousProcess.ps1) | Procesos con características sospechosas |
+| 📊 **Monitor** | [Get-OpenPorts](scripts/monitor/Get-OpenPorts.ps1) | Puertos TCP/UDP abiertos en el equipo |
+| 📊 **Monitor** | [Test-FailedLogins](scripts/monitor/Test-FailedLogins.ps1) | Logons fallidos del registro de Seguridad |
+| 📊 **Monitor** | [Get-NetworkAnomaly](scripts/monitor/Get-NetworkAnomaly.ps1) | Conexiones de red anómalas |
+| 📋 **Logs** | [Get-WindowsEventAnalysis](scripts/logs/Get-WindowsEventAnalysis.ps1) | Análisis de eventos de Windows por origen |
+| 📋 **Logs** | [Get-IisLogHourlySummary](scripts/logs/Get-IisLogHourlySummary.ps1) | Resumen por hora de logs de IIS |
+| 📋 **Logs** | [Get-FirewallLogAnalysis](scripts/logs/Get-FirewallLogAnalysis.ps1) | Análisis de logs del firewall de Windows |
+| 📋 **Logs** | [Get-SystemHealth](scripts/logs/Get-SystemHealth.ps1) | Salud general del equipo (CPU, memoria, disco) |
+| 📋 **Logs** | [Get-LogErrorTrend](scripts/logs/Get-LogErrorTrend.ps1) | Tendencia de errores por hora |
+| 📋 **Logs** | [Get-EventLogSummary](scripts/logs/Get-EventLogSummary.ps1) | Resumen de logs de eventos por origen |
+| 📊 **Data** | [Get-CsvSummary](scripts/data/Get-CsvSummary.ps1) | Resumen de archivo CSV (columnas, filas, nulos) |
+| 📄 **Reports** | [Get-HealthReport](scripts/reports/Get-HealthReport.ps1) | Reporte consolidado de salud del equipo |
+| 💻 **System** | [Get-AutoStartAnalysis](scripts/system/Get-AutoStartAnalysis.ps1) | Entradas de inicio automático de Windows |
+| 🔐 **Security** | [Get-DnsCache](scripts/security/Get-DnsCache.ps1) | Caché DNS del resolutor local |
+| 🌐 **Network** | [Get-LatencyTest](scripts/network/Get-LatencyTest.ps1) | Test de latencia a múltiples endpoints |
+| 📁 **Files** | [Get-LargeFiles](scripts/files/Get-LargeFiles.ps1) | Archivos más grandes de un directorio |
 
 ---
 

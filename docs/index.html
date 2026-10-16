@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#081525">
-  <meta name="description" content="81 scripts de PowerShell para automatización diaria: archivos, red, seguridad, identidad, eventos, respaldo, energía, impresión, IIS, bases de datos, Azure, AWS, Active Directory, contenedores y Microsoft 365.">
+  <meta name="description" content="100 scripts de PowerShell para automatización diaria: archivos, red, seguridad, identidad, eventos, respaldo, energía, impresión, IIS, bases de datos, Azure, AWS, Active Directory, contenedores, Microsoft 365, monitoreo, logs e informes.">
   <title>PowerShell Toolbox · scripts que resuelven trabajo real</title>
   <style>
     :root { color-scheme: dark; --bg:#081525; --panel:#10243a; --line:#294660; --text:#edf6ff; --muted:#a5bdd0; --mint:#63e1c0; --blue:#86b8ff; --orange:#ffca86; }
@@ -87,9 +87,9 @@
         <div>
           <div class="eyebrow" data-es="Código práctico · sin datos de clientes" data-en="Practical code · no customer data">Código práctico · sin datos de clientes</div>
           <h1 data-es="PowerShell que <span>resuelve</span> trabajo real." data-en="PowerShell that <span>gets work done.</span>">PowerShell que <span>resuelve</span> trabajo real.</h1>
-          <p class="lead" data-es="Una caja de herramientas para archivos, red, seguridad, identidad, eventos, respaldo, energía, impresión, IIS, bases de datos, Azure, AWS, Active Directory, contenedores y Microsoft 365. Scripts independientes, ejemplos claros y código listo para adaptar." data-en="A toolbox for files, networks, security, identity, events, backup, power, printing, IIS, databases, Azure, AWS, Active Directory, containers, and Microsoft 365. Standalone scripts, clear examples, and code ready to adapt.">Una caja de herramientas para archivos, red, seguridad, identidad, eventos, respaldo, energía, impresión, IIS, bases de datos, Azure, AWS, Active Directory, contenedores y Microsoft 365. Scripts independientes, ejemplos claros y código listo para adaptar.</p>
+          <p class="lead" data-es="100 scripts de PowerShell para archivos, red, seguridad, identidad, IIS, bases de datos, Azure, AWS, Active Directory, contenedores, Microsoft 365, monitoreo, logs e informes. Código listo para adaptar." data-en="100 PowerShell scripts for files, networks, security, identity, IIS, databases, Azure, AWS, Active Directory, containers, Microsoft 365, monitoring, logs, and reports. Code ready to adapt.">100 scripts de PowerShell para archivos, red, seguridad, identidad, IIS, bases de datos, Azure, AWS, Active Directory, contenedores, Microsoft 365, monitoreo, logs e informes. Código listo para adaptar.</p>
           <div class="actions"><a class="button primary" href="#install" data-es="Ver cómo instalar ↓" data-en="See how to install ↓">Ver cómo instalar ↓</a><a class="button secondary" href="https://github.com/peopleworks/powershell-toolbox" data-es="Ver repositorio ↗" data-en="View repository ↗">Ver repositorio ↗</a></div>
-          <div class="stats"><div><strong id="scriptCount">81</strong><span data-es="scripts" data-en="scripts">scripts</span></div><div><strong id="categoryCount">20</strong><span data-es="categorías" data-en="categories">categorías</span></div><div><strong>MIT</strong><span data-es="licencia" data-en="license">licencia</span></div></div>
+          <div class="stats"><div><strong id="scriptCount">100</strong><span data-es="scripts" data-en="scripts">scripts</span></div><div><strong id="categoryCount">20</strong><span data-es="categorías" data-en="categories">categorías</span></div><div><strong>MIT</strong><span data-es="licencia" data-en="license">licencia</span></div></div>
         </div>
         <div class="terminal" aria-label="PowerShell example">
           <div class="terminal-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="terminal-title">PowerShell 7 · quick start</span></div>
@@ -107,13 +107,13 @@ Files      : {report-a.pdf, report-b.pdf, backup.pdf}</span>
       <section id="install" class="install">
         <div class="install-head">
           <h2 data-es="Primeros pasos — qué instalar" data-en="First steps — what to install">Primeros pasos — qué instalar</h2>
-          <p data-es="Configura tu entorno para ejecutar los scripts de PowerShell Toolbox, incluidos los de Azure, AWS, Active Directory, contenedores y Microsoft 365." data-en="Set up your environment to run PowerShell Toolbox scripts, including Azure, AWS, Active Directory, containers, and Microsoft 365.">Configura tu entorno para ejecutar los scripts de PowerShell Toolbox, incluidos los de Azure, AWS, Active Directory, contenedores y Microsoft 365.</p>
+          <p data-es="Configura tu entorno para ejecutar los scripts de PowerShell Toolbox." data-en="Set up your environment to run PowerShell Toolbox scripts.">Configura tu entorno para ejecutar los scripts de PowerShell Toolbox.</p>
         </div>
         <div class="steps">
           <article class="step">
             <div class="step-num">1</div>
             <h3 data-es="Instalar PowerShell 7" data-en="Install PowerShell 7">Instalar PowerShell 7</h3>
-            <p data-es="La mayoría de los scripts requieren PowerShell 7 (multiplataforma). Descárgalo desde Microsoft o instálalo con winget." data-en="Most scripts require PowerShell 7 (cross-platform). Download it from Microsoft or install with winget.">La mayoría de los scripts requieren PowerShell 7 (multiplataforma). Descárgalo desde Microsoft o instálalo con winget.</p>
+            <p data-es="La mayoría de los scripts requieren PowerShell 7 (multiplataforma)." data-en="Most scripts require PowerShell 7 (cross-platform).">La mayoría de los scripts requieren PowerShell 7 (multiplataforma).</p>
             <pre>winget install Microsoft.PowerShell</pre>
           </article>
           <article class="step">
@@ -125,7 +125,7 @@ Files      : {report-a.pdf, report-b.pdf, backup.pdf}</span>
           <article class="step">
             <div class="step-num">3</div>
             <h3 data-es="Instalar módulo Az (Azure)" data-en="Install Az module (Azure)">Instalar módulo Az (Azure)</h3>
-            <p data-es="Los scripts de Azure requieren el módulo Az y una sesión autenticada con Connect-AzAccount." data-en="The Azure scripts require the Az module and an authenticated session via Connect-AzAccount.">Los scripts de Azure requieren el módulo Az y una sesión autenticada con Connect-AzAccount.</p>
+            <p data-es="Los scripts de Azure requieren el módulo Az y Connect-AzAccount." data-en="The Azure scripts require the Az module and Connect-AzAccount.">Los scripts de Azure requieren el módulo Az y Connect-AzAccount.</p>
             <pre>Install-Module Az -Scope CurrentUser
 Connect-AzAccount</pre>
           </article>
@@ -151,8 +151,8 @@ Connect-AzAccount</pre>
           <article class="step">
             <div class="step-num">7</div>
             <h3 data-es="Ejecutar un script de ejemplo" data-en="Run an example script">Ejecutar un script de ejemplo</h3>
-            <p data-es="Desde la raíz del repositorio, en PowerShell 7, prueba cualquiera de los 81 scripts." data-en="From the repository root, in PowerShell 7, try any of the 81 scripts.">Desde la raíz del repositorio, en PowerShell 7, prueba cualquiera de los 81 scripts.</p>
-            <pre>./scripts/azure/Test-AzureConnectivity.ps1</pre>
+            <p data-es="Desde la raíz del repositorio, en PowerShell 7, prueba cualquiera de los 100 scripts." data-en="From the repository root, in PowerShell 7, try any of the 100 scripts.">Desde la raíz del repositorio, en PowerShell 7, prueba cualquiera de los 100 scripts.</p>
+            <pre>./scripts/monitor/Test-HttpAttack.ps1 -LogPath "C:\inetpub\logs\LogFiles\W3SVC1"</pre>
           </article>
         </div>
       </section>
@@ -174,10 +174,12 @@ Connect-AzAccount</pre>
       {n:'Find-DuplicateFiles',c:'files',p:'scripts/files/Find-DuplicateFiles.ps1',es:'Encuentra copias idénticas por tamaño y SHA-256, sin borrar nada.',en:'Finds identical copies by size and SHA-256 without deleting anything.',r:'PS 7+',cmd:'./scripts/files/Find-DuplicateFiles.ps1 -Path ./downloads'},
       {n:'New-ArchiveFromDirectory',c:'files',p:'scripts/files/New-ArchiveFromDirectory.ps1',es:'Crea un ZIP de una carpeta, incluidos archivos ocultos.',en:'Creates a ZIP from a directory, including hidden files.',r:'PS 7+',cmd:'./scripts/files/New-ArchiveFromDirectory.ps1 -Path ./release -Output ./release.zip'},
       {n:'Clean-TempFiles',c:'files',p:'scripts/files/Clean-TempFiles.ps1',es:'Borra archivos temporales antiguos con vista previa (-WhatIf) y exclusiones.',en:'Deletes old temp files with preview (-WhatIf) and exclusions.',r:'PS 7+',cmd:'./scripts/files/Clean-TempFiles.ps1 -Path $env:TEMP -MaxAgeDays 7 -WhatIf'},
+      {n:'Get-LargeFiles',c:'files',p:'scripts/files/Get-LargeFiles.ps1',es:'Lista los archivos más grandes de un directorio con tamaño y propietario.',en:'Lists the largest files under a directory with size and owner.',r:'PS 7+',cmd:'./scripts/files/Get-LargeFiles.ps1 -Path ./downloads -MinSizeMB 100'},
 
       {n:'Get-TcpConnections',c:'network',p:'scripts/network/Get-TcpConnections.ps1',es:'Conexiones TCP como objetos listos para filtrar y exportar.',en:'TCP connections as filterable, exportable objects.',r:'Windows',cmd:'./scripts/network/Get-TcpConnections.ps1 -State Established'},
       {n:'Test-Endpoint',c:'network',p:'scripts/network/Test-Endpoint.ps1',es:'Comprueba DNS, TCP y HTTP sin credenciales ni cuerpo de respuesta.',en:'Checks DNS, TCP, and HTTP without credentials or response bodies.',r:'PS 7+',cmd:'./scripts/network/Test-Endpoint.ps1 -Uri https://example.org/'},
       {n:'Get-DnsClientConfig',c:'network',p:'scripts/network/Get-DnsClientConfig.ps1',es:'Configuración DNS, DHCP e IPs de cada adaptador de red.',en:'DNS, DHCP, and IP configuration per network adapter.',r:'Windows',cmd:'./scripts/network/Get-DnsClientConfig.ps1'},
+      {n:'Get-LatencyTest',c:'network',p:'scripts/network/Get-LatencyTest.ps1',es:'Test de latencia a múltiples endpoints usando Test-NetConnection.',en:'Latency test to multiple endpoints using Test-NetConnection.',r:'PS 7+',cmd:'./scripts/network/Get-LatencyTest.ps1 -Endpoint @("google.com","microsoft.com") -Port 443'},
 
       {n:'Convert-HtmlToPng',c:'images',p:'scripts/web/Convert-HtmlToPng.ps1',es:'Convierte HTML local en PNG con Edge o Chrome headless.',en:'Turns local HTML into PNG with headless Edge or Chrome.',r:'Edge / Chrome',cmd:'./scripts/web/Convert-HtmlToPng.ps1 -Html ./page.html'},
       {n:'Compare-Png',c:'images',p:'scripts/images/Compare-Png.ps1',es:'Cuenta píxeles distintos y genera una máscara visual de cambios.',en:'Counts changed pixels and creates a visual diff.',r:'Windows',cmd:'./scripts/images/Compare-Png.ps1 -Reference ./before.png -Current ./after.png'},
@@ -188,8 +190,12 @@ Connect-AzAccount</pre>
       {n:'Get-BrowserPolicies',c:'security',p:'scripts/security/Get-BrowserPolicies.ps1',es:'Inspecciona políticas de Chrome y Edge en el registro.',en:'Inspects Chrome and Edge policies in the registry.',r:'Windows',cmd:'./scripts/security/Get-BrowserPolicies.ps1'},
       {n:'Get-CertificateExpiry',c:'security',p:'scripts/security/Get-CertificateExpiry.ps1',es:'Lista certificados expirados o por vencer en una tienda de Windows.',en:'Lists expired or soon-to-expire certificates in a Windows store.',r:'Windows',cmd:'./scripts/security/Get-CertificateExpiry.ps1 -StoreLocation CurrentUser -DaysAhead 30'},
       {n:'Get-FirewallRules',c:'security',p:'scripts/security/Get-FirewallRules.ps1',es:'Reglas del firewall de Windows con estado, dirección y puertos.',en:'Windows firewall rules with state, direction, and ports.',r:'Windows',cmd:'./scripts/security/Get-FirewallRules.ps1'},
+      {n:'Get-DnsCache',c:'security',p:'scripts/security/Get-DnsCache.ps1',es:'Entradas del caché DNS del resolutor local.',en:'Local DNS resolver cache entries.',r:'Windows',cmd:'./scripts/security/Get-DnsCache.ps1'},
 
       {n:'Get-LocalUserSummary',c:'identity',p:'scripts/identity/Get-LocalUserSummary.ps1',es:'Usuarios locales, estado, último logon y grupos a los que pertenecen.',en:'Local users, state, last logon, and group memberships.',r:'Windows',cmd:'./scripts/identity/Get-LocalUserSummary.ps1'},
+      {n:'Get-ADUserSummary',c:'identity',p:'scripts/identity/Get-ADUserSummary.ps1',es:'Usuarios de Active Directory con propiedades clave.',en:'Active Directory users with key properties.',r:'AD RSAT',cmd:'./scripts/identity/Get-ADUserSummary.ps1 -Domain ejemplo.local'},
+      {n:'Get-ADGroupMembers',c:'identity',p:'scripts/identity/Get-ADGroupMembers.ps1',es:'Miembros de un grupo de Active Directory.',en:'Members of an Active Directory group.',r:'AD RSAT',cmd:'./scripts/identity/Get-ADGroupMembers.ps1 -GroupName Administradores'},
+      {n:'Test-ADAccountLockout',c:'identity',p:'scripts/identity/Test-ADAccountLockout.ps1',es:'Verifica si una cuenta de AD está bloqueada.',en:'Checks if an AD account is locked out.',r:'AD RSAT',cmd:'./scripts/identity/Test-ADAccountLockout.ps1 -SamAccountName usuario_ejemplo'},
 
       {n:'Get-WindowsEventErrors',c:'events',p:'scripts/events/Get-WindowsEventErrors.ps1',es:'Errores y advertencias del Visor de eventos en un periodo de tiempo.',en:'Event Viewer errors and warnings within a time window.',r:'Windows',cmd:'./scripts/events/Get-WindowsEventErrors.ps1 -LogName System -HoursBack 24'},
 
@@ -214,6 +220,7 @@ Connect-AzAccount</pre>
       {n:'Get-ComputerHardware',c:'system',p:'scripts/system/Get-ComputerHardware.ps1',es:'Inventario de hardware: modelo, memoria, CPU, BIOS y discos.',en:'Hardware inventory: model, memory, CPU, BIOS, and disks.',r:'Windows',cmd:'./scripts/system/Get-ComputerHardware.ps1'},
       {n:'Get-StartupEntries',c:'system',p:'scripts/system/Get-StartupEntries.ps1',es:'Revisa entradas Run y tareas programadas de interés.',en:'Reviews Run entries and selected scheduled tasks.',r:'Windows',cmd:'./scripts/system/Get-StartupEntries.ps1'},
       {n:'Invoke-LoggedProcess',c:'system',p:'scripts/system/Invoke-LoggedProcess.ps1',es:'Ejecuta un proceso con logs de salida y error separados y timeout.',en:'Runs a process with separate stdout and stderr logs and a timeout.',r:'PS 7+',cmd:'./scripts/system/Invoke-LoggedProcess.ps1 -FilePath dotnet -ArgumentList @("--info") -OutputDirectory ./.local/logs'},
+      {n:'Get-AutoStartAnalysis',c:'system',p:'scripts/system/Get-AutoStartAnalysis.ps1',es:'Entradas de inicio automático (Run keys y tareas programadas).',en:'Windows auto-start entries analysis (Run keys and scheduled tasks).',r:'Windows',cmd:'./scripts/system/Get-AutoStartAnalysis.ps1'},
 
       {n:'Wait-ProcessExit',c:'processes',p:'scripts/system/Wait-ProcessExit.ps1',es:'Espera a que termine un proceso sin cerrarlo.',en:'Waits for a process to exit without terminating it.',r:'PS 7+',cmd:'./scripts/system/Wait-ProcessExit.ps1 -Name msbuild'},
       {n:'Wait-CommandSuccess',c:'processes',p:'scripts/system/Wait-CommandSuccess.ps1',es:'Reintenta una comprobación booleana hasta que funcione.',en:'Retries a Boolean check until it succeeds.',r:'PS 7+',cmd:'./scripts/system/Wait-CommandSuccess.ps1 -Check { Test-Path ./ready.flag }'},
@@ -224,6 +231,7 @@ Connect-AzAccount</pre>
       {n:'Test-OdbcConnection',c:'data',p:'scripts/data/Test-OdbcConnection.ps1',es:'Prueba un DSN sin imprimir credenciales ni filas.',en:'Tests a DSN without printing credentials or rows.',r:'ODBC',cmd:'./scripts/data/Test-OdbcConnection.ps1 -Dsn ExampleDsn'},
       {n:'Test-SqlConnection',c:'data',p:'scripts/data/Test-SqlConnection.ps1',es:'Prueba de conexión ODBC a SQL Server con consulta de ejemplo.',en:'ODBC connectivity test to SQL Server with sample query.',r:'ODBC',cmd:'./scripts/data/Test-SqlConnection.ps1 -Dsn ExampleSqlDsn -Query "SELECT 1"'},
       {n:'Get-CrystalReportInventory',c:'data',p:'scripts/reports/Get-CrystalReportInventory.ps1',es:'Inventario de parámetros, tablas y subreportes .rpt.',en:'Inventories .rpt parameters, tables, and subreports.',r:'Crystal runtime',cmd:'./scripts/reports/Get-CrystalReportInventory.ps1 -Path ./reports'},
+      {n:'Get-CsvSummary',c:'data',p:'scripts/data/Get-CsvSummary.ps1',es:'Resumen de archivo CSV: columnas, filas, nulos, mínimos y máximos.',en:'CSV file summary: columns, rows, nulls, min, max.',r:'PS 7+',cmd:'./scripts/data/Get-CsvSummary.ps1 -Path ./report.csv'},
 
       {n:'Get-SqlServerBackup',c:'database',p:'scripts/database/Get-SqlServerBackup.ps1',es:'Restaura BD de SQL Server desde backup nocturno (dbatools). Adaptado de IBEROFARMACOS.',en:'Restores SQL Server databases from nightly backup (dbatools). Adapted from IBEROFARMACOS.',r:'dbatools',cmd:'./scripts/database/Get-SqlServerBackup.ps1 -Source DBSERVER -Destination APPSERVER4 -SharedPath "\\\\backups\\full\\" -Databases @("EXACTUS")'},
       {n:'Get-SqlServerBackupDia',c:'database',p:'scripts/database/Get-SqlServerBackupDia.ps1',es:'Restaura BD de SQL Server desde backup medio día (dbatools). Adaptado de IBEROFARMACOS.',en:'Restores SQL Server databases from mid-day backup (dbatools). Adapted from IBEROFARMACOS.',r:'dbatools',cmd:'./scripts/database/Get-SqlServerBackupDia.ps1 -Source DBSERVER -Destination APPSERVER4 -SharedPath "\\\\backups\\midday\\" -Databases @("EXACTUS")'},
@@ -266,10 +274,22 @@ Connect-AzAccount</pre>
       {n:'Test-M365Connectivity',c:'m365',p:'scripts/m365/Test-M365Connectivity.ps1',es:'Conectividad a Exchange Online / Microsoft 365.',en:'Exchange Online / M365 connectivity.',r:'ExchangeOnlineManagement',cmd:'./scripts/m365/Test-M365Connectivity.ps1'},
       {n:'Get-ExchangeMailboxSummary',c:'m365',p:'scripts/m365/Get-ExchangeMailboxSummary.ps1',es:'Buzones de Exchange Online con tamaño y elementos.',en:'Exchange Online mailboxes with size and item count.',r:'ExchangeOnlineManagement',cmd:'./scripts/m365/Get-ExchangeMailboxSummary.ps1 -MaxResults 50'},
 
-      {n:'Get-LocalUserSummary',c:'identity',p:'scripts/identity/Get-LocalUserSummary.ps1',es:'Usuarios locales, estado, último logon y grupos a los que pertenecen.',en:'Local users, state, last logon, and group memberships.',r:'Windows',cmd:'./scripts/identity/Get-LocalUserSummary.ps1'},
-      {n:'Get-ADUserSummary',c:'identity',p:'scripts/identity/Get-ADUserSummary.ps1',es:'Usuarios de Active Directory con propiedades clave.',en:'Active Directory users with key properties.',r:'AD RSAT',cmd:'./scripts/identity/Get-ADUserSummary.ps1 -Domain ejemplo.local'},
-      {n:'Get-ADGroupMembers',c:'identity',p:'scripts/identity/Get-ADGroupMembers.ps1',es:'Miembros de un grupo de Active Directory.',en:'Members of an Active Directory group.',r:'AD RSAT',cmd:'./scripts/identity/Get-ADGroupMembers.ps1 -GroupName Administradores'},
-      {n:'Test-ADAccountLockout',c:'identity',p:'scripts/identity/Test-ADAccountLockout.ps1',es:'Verifica si una cuenta de AD está bloqueada.',en:'Checks if an AD account is locked out.',r:'AD RSAT',cmd:'./scripts/identity/Test-ADAccountLockout.ps1 -SamAccountName usuario_ejemplo'},
+      {n:'Test-HttpAttack',c:'monitor',p:'scripts/monitor/Test-HttpAttack.ps1',es:'Detecta patrones de ataque HTTP en logs IIS (escaneo, fuerza bruta, DoS).',en:'Detects HTTP attack patterns from IIS logs (scanning, brute-force, DoS).',r:'IIS logs',cmd:'./scripts/monitor/Test-HttpAttack.ps1 -LogPath "C:\\inetpub\\logs\\LogFiles\\W3SVC1"'},
+      {n:'Get-PortScanDetection',c:'monitor',p:'scripts/monitor/Get-PortScanDetection.ps1',es:'Detecta posible escaneo de puertos desde conexiones TCP activas.',en:'Detects possible port scanning activity from active TCP connections.',r:'Windows',cmd:'./scripts/monitor/Get-PortScanDetection.ps1 -MinPorts 20'},
+      {n:'Test-BruteForceAttempt',c:'monitor',p:'scripts/monitor/Test-BruteForceAttempt.ps1',es:'Detecta ataques de fuerza bruta desde eventos de logon fallido (4625).',en:'Detects brute-force login attempts from failed logon events (4625).',r:'Security log',cmd:'./scripts/monitor/Test-BruteForceAttempt.ps1 -HoursBack 24 -MaxFailedAttempts 10'},
+      {n:'Get-SuspiciousProcess',c:'monitor',p:'scripts/monitor/Get-SuspiciousProcess.ps1',es:'Procesos con características sospechosas: carpeta temp, sin empresa, alto CPU.',en:'Processes with suspicious characteristics: temp folder, no company, high CPU.',r:'Windows',cmd:'./scripts/monitor/Get-SuspiciousProcess.ps1 -MinCpu 10 -MinMemoryMB 100'},
+      {n:'Get-OpenPorts',c:'monitor',p:'scripts/monitor/Get-OpenPorts.ps1',es:'Puertos TCP y UDP abiertos en el equipo con proceso propietario.',en:'Open TCP and UDP ports on the local computer with owning process.',r:'Windows',cmd:'./scripts/monitor/Get-OpenPorts.ps1'},
+      {n:'Test-FailedLogins',c:'monitor',p:'scripts/monitor/Test-FailedLogins.ps1',es:'Eventos de logon fallido (4625) del registro de Seguridad de Windows.',en:'Failed login events (4625) from Windows Security log.',r:'Security log',cmd:'./scripts/monitor/Test-FailedLogins.ps1 -HoursBack 24'},
+      {n:'Get-NetworkAnomaly',c:'monitor',p:'scripts/monitor/Get-NetworkAnomaly.ps1',es:'Conexiones de red anómalas: fuera de horario o IP no confiable.',en:'Anomalous network connections: outside business hours or untrusted IP.',r:'Windows',cmd:'./scripts/monitor/Get-NetworkAnomaly.ps1'},
+
+      {n:'Get-WindowsEventAnalysis',c:'logs',p:'scripts/logs/Get-WindowsEventAnalysis.ps1',es:'Análisis de eventos de Windows por origen y nivel (Error, Warning).',en:'Analyzes Windows events by source and level (Error, Warning).',r:'Windows',cmd:'./scripts/logs/Get-WindowsEventAnalysis.ps1 -LogName System -HoursBack 24'},
+      {n:'Get-IisLogHourlySummary',c:'logs',p:'scripts/logs/Get-IisLogHourlySummary.ps1',es:'Resumen por hora de logs W3C de IIS: peticiones, estados, bytes.',en:'Hourly summary of IIS W3C logs: requests, status codes, bytes.',r:'IIS logs',cmd:'./scripts/logs/Get-IisLogHourlySummary.ps1 -LogPath "C:\\inetpub\\logs\\LogFiles\\W3SVC1"'},
+      {n:'Get-FirewallLogAnalysis',c:'logs',p:'scripts/logs/Get-FirewallLogAnalysis.ps1',es:'Análisis de logs del firewall de Windows: conexiones bloqueadas por IP origen.',en:'Analyzes Windows Defender firewall logs: blocked connections by source IP.',r:'Firewall log',cmd:'./scripts/logs/Get-FirewallLogAnalysis.ps1 -Action Block -HoursBack 24'},
+      {n:'Get-SystemHealth',c:'logs',p:'scripts/logs/Get-SystemHealth.ps1',es:'Salud general del equipo: CPU, memoria, disco, uptime, versión de SO.',en:'System health summary: CPU, memory, disk, uptime, OS version.',r:'Windows',cmd:'./scripts/logs/Get-SystemHealth.ps1'},
+      {n:'Get-LogErrorTrend',c:'logs',p:'scripts/logs/Get-LogErrorTrend.ps1',es:'Tendencia de errores de eventos agrupada por hora.',en:'Error trend from event logs grouped by hour.',r:'Windows',cmd:'./scripts/logs/Get-LogErrorTrend.ps1 -HoursBack 24'},
+      {n:'Get-EventLogSummary',c:'logs',p:'scripts/logs/Get-EventLogSummary.ps1',es:'Resumen de logs de eventos por origen: total, errores, advertencias.',en:'Event log summary by source: total events, errors, warnings.',r:'Windows',cmd:'./scripts/logs/Get-EventLogSummary.ps1 -LogName System'},
+
+      {n:'Get-HealthReport',c:'reports',p:'scripts/reports/Get-HealthReport.ps1',es:'Reporte consolidado de salud del equipo: sistema, reinicio, discos, eventos.',en:'Consolidated system health report: system, reboot, disks, events.',r:'Windows',cmd:'./scripts/reports/Get-HealthReport.ps1'},
 
       {n:'Convert-TextToSpeech',c:'media',p:'scripts/media/Convert-TextToSpeech.ps1',es:'Crea un WAV con una voz Windows SAPI instalada.',en:'Creates a WAV with an installed Windows SAPI voice.',r:'WinPS 5.1',cmd:'powershell.exe -File ./scripts/media/Convert-TextToSpeech.ps1 -Text "Hello" -Output ./hello.wav'}
     ];
@@ -295,6 +315,9 @@ Connect-AzAccount</pre>
       aws:{es:'AWS',en:'AWS'},
       containers:{es:'Contenedores',en:'Containers'},
       m365:{es:'Microsoft 365',en:'Microsoft 365'},
+      monitor:{es:'Monitoreo',en:'Monitor'},
+      logs:{es:'Logs',en:'Logs'},
+      reports:{es:'Informes',en:'Reports'},
       media:{es:'Audio',en:'Audio'}
     };
     let language = 'es', category = 'all';
