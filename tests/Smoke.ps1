@@ -61,6 +61,30 @@ try {
         throw 'Process logging did not capture stdout.'
     }
 
+    $privacyRepo = Join-Path $testDirectory 'privacy-repo'
+    [void](New-Item -ItemType Directory -Path $privacyRepo)
+    try {
+        & git -C $privacyRepo init -q
+        if ($LASTEXITCODE -ne 0) { throw 'Could not initialize synthetic Git repository.' }
+        $syntheticFile = Join-Path $privacyRepo 'example.txt'
+        $keyName = 'api' + '_key'
+        $fakeValue = 'dummy' + '-secret-12345'
+        [IO.File]::WriteAllText($syntheticFile, $keyName + '="' + $fakeValue + '"'.Replace('\', ''))
+        & git -C $privacyRepo add example.txt
+        if ($LASTEXITCODE -ne 0) { throw 'Could not stage synthetic file.' }
+        $privacy = & (Join-Path $root 'scripts/security/Test-GitStagedContent.ps1') -Repository $privacyRepo
+        if ($privacy.Passed -or 'CredentialLiteral' -notin $privacy.Findings.Rule) {
+            throw 'Staged-content scan missed a synthetic credential.'
+        }
+    } finally {
+        $safeRoot = [IO.Path]::GetFullPath($testDirectory).TrimEnd('\') + [IO.Path]::DirectorySeparatorChar
+        $resolvedPrivacyRepo = [IO.Path]::GetFullPath($privacyRepo)
+        if (-not $resolvedPrivacyRepo.StartsWith($safeRoot, [StringComparison]::OrdinalIgnoreCase)) {
+            throw 'Refusing to remove a test directory outside its parent.'
+        }
+        Remove-Item -LiteralPath $resolvedPrivacyRepo -Recurse -Force
+    }
+
     if ($IsWindows) {
         Add-Type -AssemblyName System.Drawing
         $beforePath = Join-Path $testDirectory 'before.png'; $created += $beforePath
@@ -81,7 +105,7 @@ try {
         if (-not (Test-Path -LiteralPath $diffPath -PathType Leaf)) { throw 'Visual diff was not created.' }
     }
 
-    "OK: parsed $($scripts.Count) scripts; synthetic file, process and image checks passed."
+    "OK: parsed $($scripts.Count) scripts; synthetic file, process, privacy and image checks passed."
 } finally {
     foreach ($file in $created) {
         if (Test-Path -LiteralPath $file) { Remove-Item -LiteralPath $file -Force }
