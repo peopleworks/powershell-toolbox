@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#081525">
-  <meta name="description" content="21 scripts PowerShell prácticos para archivos, red, seguridad, imágenes, datos y automatización.">
+  <meta name="description" content="37 scripts de PowerShell para automatización diaria: archivos, red, seguridad, identidad, eventos, respaldo, energía, impresión, IIS y más.">
   <title>PowerShell Toolbox · scripts que resuelven trabajo real</title>
   <style>
     :root { color-scheme: dark; --bg:#081525; --panel:#10243a; --line:#294660; --text:#edf6ff; --muted:#a5bdd0; --mint:#63e1c0; --blue:#86b8ff; --orange:#ffca86; }
@@ -76,9 +76,9 @@
         <div>
           <div class="eyebrow" data-es="Código práctico · sin datos de clientes" data-en="Practical code · no customer data">Código práctico · sin datos de clientes</div>
           <h1 data-es="PowerShell que <span>resuelve</span> trabajo real." data-en="PowerShell that <span>gets work done.</span>">PowerShell que <span>resuelve</span> trabajo real.</h1>
-          <p class="lead" data-es="Una caja de herramientas para archivos, red, seguridad, imágenes y automatización. Scripts independientes, ejemplos claros y código listo para adaptar." data-en="A toolbox for files, networks, security, images and automation. Standalone scripts, clear examples, and code ready to adapt.">Una caja de herramientas para archivos, red, seguridad, imágenes y automatización. Scripts independientes, ejemplos claros y código listo para adaptar.</p>
+          <p class="lead" data-es="Una caja de herramientas para archivos, red, seguridad, identidad, eventos, respaldo, energía, impresión, IIS y automatización. Scripts independientes, ejemplos claros y código listo para adaptar." data-en="A toolbox for files, networks, security, identity, events, backup, power, printing, IIS and automation. Standalone scripts, clear examples, and code ready to adapt.">Una caja de herramientas para archivos, red, seguridad, identidad, eventos, respaldo, energía, impresión, IIS y automatización. Scripts independientes, ejemplos claros y código listo para adaptar.</p>
           <div class="actions"><a class="button primary" href="#catalog" data-es="Explorar herramientas ↓" data-en="Explore tools ↓">Explorar herramientas ↓</a><a class="button secondary" href="https://github.com/peopleworks/powershell-toolbox" data-es="Ver repositorio ↗" data-en="View repository ↗">Ver repositorio ↗</a></div>
-          <div class="stats"><div><strong id="scriptCount">21</strong><span data-es="scripts" data-en="scripts">scripts</span></div><div><strong id="categoryCount">8</strong><span data-es="categorías" data-en="categories">categorías</span></div><div><strong>MIT</strong><span data-es="licencia" data-en="license">licencia</span></div></div>
+          <div class="stats"><div><strong id="scriptCount">37</strong><span data-es="scripts" data-en="scripts">scripts</span></div><div><strong id="categoryCount">15</strong><span data-es="categorías" data-en="categories">categorías</span></div><div><strong>MIT</strong><span data-es="licencia" data-en="license">licencia</span></div></div>
         </div>
         <div class="terminal" aria-label="PowerShell example">
           <div class="terminal-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="terminal-title">PowerShell 7 · quick start</span></div>
@@ -108,25 +108,74 @@ Files      : {report-a.pdf, report-b.pdf, backup.pdf}</span>
       {n:'Get-DirectoryInventory',c:'files',p:'scripts/files/Get-DirectoryInventory.ps1',es:'Inventario de archivos con tamaños, rutas relativas y hashes opcionales.',en:'File inventory with sizes, relative paths, and optional hashes.',r:'PS 7+',cmd:'./scripts/files/Get-DirectoryInventory.ps1 -Path ./folder -IncludeHash'},
       {n:'Find-DuplicateFiles',c:'files',p:'scripts/files/Find-DuplicateFiles.ps1',es:'Encuentra copias idénticas por tamaño y SHA-256, sin borrar nada.',en:'Finds identical copies by size and SHA-256 without deleting anything.',r:'PS 7+',cmd:'./scripts/files/Find-DuplicateFiles.ps1 -Path ./downloads'},
       {n:'New-ArchiveFromDirectory',c:'files',p:'scripts/files/New-ArchiveFromDirectory.ps1',es:'Crea un ZIP de una carpeta, incluidos archivos ocultos.',en:'Creates a ZIP from a directory, including hidden files.',r:'PS 7+',cmd:'./scripts/files/New-ArchiveFromDirectory.ps1 -Path ./release -Output ./release.zip'},
+      {n:'Clean-TempFiles',c:'files',p:'scripts/files/Clean-TempFiles.ps1',es:'Borra archivos temporales antiguos con vista previa (-WhatIf) y exclusiones.',en:'Deletes old temp files with preview (-WhatIf) and exclusions.',r:'PS 7+',cmd:'./scripts/files/Clean-TempFiles.ps1 -Path $env:TEMP -MaxAgeDays 7 -WhatIf'},
+
       {n:'Get-TcpConnections',c:'network',p:'scripts/network/Get-TcpConnections.ps1',es:'Conexiones TCP como objetos listos para filtrar y exportar.',en:'TCP connections as filterable, exportable objects.',r:'Windows',cmd:'./scripts/network/Get-TcpConnections.ps1 -State Established'},
       {n:'Test-Endpoint',c:'network',p:'scripts/network/Test-Endpoint.ps1',es:'Comprueba DNS, TCP y HTTP sin credenciales ni cuerpo de respuesta.',en:'Checks DNS, TCP, and HTTP without credentials or response bodies.',r:'PS 7+',cmd:'./scripts/network/Test-Endpoint.ps1 -Uri https://example.org/'},
-      {n:'Compare-Png',c:'images',p:'scripts/images/Compare-Png.ps1',es:'Cuenta píxeles distintos y genera una máscara visual de cambios.',en:'Counts changed pixels and creates a visual diff.',r:'Windows',cmd:'./scripts/images/Compare-Png.ps1 -Reference ./before.png -Current ./after.png'},
+      {n:'Get-DnsClientConfig',c:'network',p:'scripts/network/Get-DnsClientConfig.ps1',es:'Configuración DNS, DHCP e IPs de cada adaptador de red.',en:'DNS, DHCP, and IP configuration per network adapter.',r:'Windows',cmd:'./scripts/network/Get-DnsClientConfig.ps1'},
+
       {n:'Convert-HtmlToPng',c:'images',p:'scripts/web/Convert-HtmlToPng.ps1',es:'Convierte HTML local en PNG con Edge o Chrome headless.',en:'Turns local HTML into PNG with headless Edge or Chrome.',r:'Edge / Chrome',cmd:'./scripts/web/Convert-HtmlToPng.ps1 -Html ./page.html'},
+      {n:'Compare-Png',c:'images',p:'scripts/images/Compare-Png.ps1',es:'Cuenta píxeles distintos y genera una máscara visual de cambios.',en:'Counts changed pixels and creates a visual diff.',r:'Windows',cmd:'./scripts/images/Compare-Png.ps1 -Reference ./before.png -Current ./after.png'},
       {n:'Convert-DrawioToPng',c:'images',p:'scripts/images/Convert-DrawioToPng.ps1',es:'Exporta diagramas .drawio a PNG en lote.',en:'Batch exports .drawio diagrams to PNG.',r:'draw.io Desktop',cmd:'./scripts/images/Convert-DrawioToPng.ps1 -Path ./diagrams -OutputDirectory ./exports'},
+
       {n:'Test-GitStagedContent',c:'security',p:'scripts/security/Test-GitStagedContent.ps1',es:'Busca posibles secretos y rutas locales en el índice de Git sin mostrar valores.',en:'Finds likely secrets and local paths in staged Git content without printing values.',r:'Git',cmd:'./scripts/security/Test-GitStagedContent.ps1 -Repository .'},
       {n:'Get-BrowserExtensions',c:'security',p:'scripts/security/Get-BrowserExtensions.ps1',es:'Lista extensiones de Chrome y Edge por perfil sin leer el historial.',en:'Lists Chrome and Edge extensions by profile without reading history.',r:'Windows',cmd:'./scripts/security/Get-BrowserExtensions.ps1'},
       {n:'Get-BrowserPolicies',c:'security',p:'scripts/security/Get-BrowserPolicies.ps1',es:'Inspecciona políticas de Chrome y Edge en el registro.',en:'Inspects Chrome and Edge policies in the registry.',r:'Windows',cmd:'./scripts/security/Get-BrowserPolicies.ps1'},
-      {n:'Get-StartupEntries',c:'security',p:'scripts/system/Get-StartupEntries.ps1',es:'Revisa entradas Run y tareas programadas de interés.',en:'Reviews Run entries and selected scheduled tasks.',r:'Windows',cmd:'./scripts/system/Get-StartupEntries.ps1'},
-      {n:'Find-DuplicateCSharpClasses',c:'code',p:'scripts/code/Find-DuplicateCSharpClasses.ps1',es:'Señala nombres de clases C# repetidos para revisión.',en:'Flags repeated C# class names for review.',r:'PS 7+',cmd:'./scripts/code/Find-DuplicateCSharpClasses.ps1 -Path ./src'},
-      {n:'Test-OdbcConnection',c:'data',p:'scripts/data/Test-OdbcConnection.ps1',es:'Prueba un DSN sin imprimir credenciales ni filas.',en:'Tests a DSN without printing credentials or rows.',r:'ODBC',cmd:'./scripts/data/Test-OdbcConnection.ps1 -Dsn ExampleDsn'},
-      {n:'Get-CrystalReportInventory',c:'data',p:'scripts/reports/Get-CrystalReportInventory.ps1',es:'Inventario de parámetros, tablas y subreportes .rpt.',en:'Inventories .rpt parameters, tables, and subreports.',r:'Crystal runtime',cmd:'./scripts/reports/Get-CrystalReportInventory.ps1 -Path ./reports'},
-      {n:'Wait-ProcessExit',c:'system',p:'scripts/system/Wait-ProcessExit.ps1',es:'Espera a que termine un proceso sin cerrarlo.',en:'Waits for a process to exit without terminating it.',r:'PS 7+',cmd:'./scripts/system/Wait-ProcessExit.ps1 -Name msbuild'},
+      {n:'Get-CertificateExpiry',c:'security',p:'scripts/security/Get-CertificateExpiry.ps1',es:'Lista certificados expirados o por vencer en una tienda de Windows.',en:'Lists expired or soon-to-expire certificates in a Windows store.',r:'Windows',cmd:'./scripts/security/Get-CertificateExpiry.ps1 -StoreLocation CurrentUser -DaysAhead 30'},
+      {n:'Get-FirewallRules',c:'security',p:'scripts/security/Get-FirewallRules.ps1',es:'Reglas del firewall de Windows con estado, dirección y puertos.',en:'Windows firewall rules with state, direction, and ports.',r:'Windows',cmd:'./scripts/security/Get-FirewallRules.ps1'},
+
+      {n:'Get-LocalUserSummary',c:'identity',p:'scripts/identity/Get-LocalUserSummary.ps1',es:'Usuarios locales, estado, último logon y grupos a los que pertenecen.',en:'Local users, state, last logon, and group memberships.',r:'Windows',cmd:'./scripts/identity/Get-LocalUserSummary.ps1'},
+
+      {n:'Get-WindowsEventErrors',c:'events',p:'scripts/events/Get-WindowsEventErrors.ps1',es:'Errores y advertencias del Visor de eventos en un periodo de tiempo.',en:'Event Viewer errors and warnings within a time window.',r:'Windows',cmd:'./scripts/events/Get-WindowsEventErrors.ps1 -LogName System -HoursBack 24'},
+
+      {n:'Get-WindowsHotfix',c:'updates',p:'scripts/updates/Get-WindowsHotfix.ps1',es:'Parches instalados en Windows con identificador, descripción y fecha.',en:'Installed Windows patches with ID, description, and date.',r:'Windows',cmd:'./scripts/updates/Get-WindowsHotfix.ps1'},
+
+      {n:'Copy-BackupFiles',c:'backup',p:'scripts/backup/Copy-BackupFiles.ps1',es:'Copia archivos con filtro, antigüedad y registro de ejecución (-WhatIf).',en:'Copies files with filter, age limit, and execution log (-WhatIf).',r:'PS 7+',cmd:'./scripts/backup/Copy-BackupFiles.ps1 -Source ./documentos -Destination ./backup -Filter "*.pdf" -WhatIf'},
+
+      {n:'Get-PowerStatus',c:'power',p:'scripts/power/Get-PowerStatus.ps1',es:'Estado de batería, plan de energía activo y dispositivos USB.',en:'Battery status, active power plan, and USB devices.',r:'Windows',cmd:'./scripts/power/Get-PowerStatus.ps1'},
+
+      {n:'Get-PrinterQueue',c:'printing',p:'scripts/printing/Get-PrinterQueue.ps1',es:'Impresoras instaladas y trabajos de impresión pendientes.',en:'Installed printers and pending print jobs.',r:'Windows',cmd:'./scripts/printing/Get-PrinterQueue.ps1'},
+
+      {n:'Get-IisSiteStatus',c:'iis',p:'scripts/iis/Get-IisSiteStatus.ps1',es:'Sitios y grupos de aplicaciones de IIS con estado y ruta física.',en:'IIS sites and application pools with state and physical path.',r:'IIS',cmd:'./scripts/iis/Get-IisSiteStatus.ps1'},
+
+      {n:'Get-PendingReboot',c:'system',p:'scripts/system/Get-PendingReboot.ps1',es:'Detecta si Windows requiere reinicio (Windows Update, CBS, PendingFileRename).',en:'Detects if Windows requires a reboot (Windows Update, CBS, PendingFileRename).',r:'Windows',cmd:'./scripts/system/Get-PendingReboot.ps1'},
+      {n:'Get-ScheduledTaskSummary',c:'system',p:'scripts/system/Get-ScheduledTaskSummary.ps1',es:'Estado, última y próxima ejecución de tareas programadas.',en:'State, last run, and next run of scheduled tasks.',r:'Windows',cmd:'./scripts/system/Get-ScheduledTaskSummary.ps1'},
+      {n:'Get-ServiceStatus',c:'system',p:'scripts/system/Get-ServiceStatus.ps1',es:'Estado y modo de inicio de servicios de Windows.',en:'State and start mode of Windows services.',r:'Windows',cmd:'./scripts/system/Get-ServiceStatus.ps1'},
+      {n:'Get-ComputerHardware',c:'system',p:'scripts/system/Get-ComputerHardware.ps1',es:'Inventario de hardware: modelo, memoria, CPU, BIOS y discos.',en:'Hardware inventory: model, memory, CPU, BIOS, and disks.',r:'Windows',cmd:'./scripts/system/Get-ComputerHardware.ps1'},
+      {n:'Get-StartupEntries',c:'system',p:'scripts/system/Get-StartupEntries.ps1',es:'Revisa entradas Run y tareas programadas de interés.',en:'Reviews Run entries and selected scheduled tasks.',r:'Windows',cmd:'./scripts/system/Get-StartupEntries.ps1'},
       {n:'Invoke-LoggedProcess',c:'system',p:'scripts/system/Invoke-LoggedProcess.ps1',es:'Ejecuta un proceso con logs de salida y error separados y timeout.',en:'Runs a process with separate stdout and stderr logs and a timeout.',r:'PS 7+',cmd:'./scripts/system/Invoke-LoggedProcess.ps1 -FilePath dotnet -ArgumentList @("--info") -OutputDirectory ./.local/logs'},
-      {n:'Wait-CommandSuccess',c:'system',p:'scripts/system/Wait-CommandSuccess.ps1',es:'Reintenta una comprobación booleana hasta que funcione.',en:'Retries a Boolean check until it succeeds.',r:'PS 7+',cmd:'./scripts/system/Wait-CommandSuccess.ps1 -Check { Test-Path ./ready.flag }'},
-      {n:'Invoke-WithMutex',c:'system',p:'scripts/system/Invoke-WithMutex.ps1',es:'Serializa tareas entre procesos con un mutex nombrado.',en:'Serializes tasks across processes with a named mutex.',r:'PS 7+',cmd:'./scripts/system/Invoke-WithMutex.ps1 -Name build -Action { dotnet build }'},
+
+      {n:'Wait-ProcessExit',c:'processes',p:'scripts/system/Wait-ProcessExit.ps1',es:'Espera a que termine un proceso sin cerrarlo.',en:'Waits for a process to exit without terminating it.',r:'PS 7+',cmd:'./scripts/system/Wait-ProcessExit.ps1 -Name msbuild'},
+      {n:'Wait-CommandSuccess',c:'processes',p:'scripts/system/Wait-CommandSuccess.ps1',es:'Reintenta una comprobación booleana hasta que funcione.',en:'Retries a Boolean check until it succeeds.',r:'PS 7+',cmd:'./scripts/system/Wait-CommandSuccess.ps1 -Check { Test-Path ./ready.flag }'},
+      {n:'Invoke-WithMutex',c:'processes',p:'scripts/system/Invoke-WithMutex.ps1',es:'Serializa tareas entre procesos con un mutex nombrado.',en:'Serializes tasks across processes with a named mutex.',r:'PS 7+',cmd:'./scripts/system/Invoke-WithMutex.ps1 -Name build -Action { dotnet build }'},
+
+      {n:'Find-DuplicateCSharpClasses',c:'code',p:'scripts/code/Find-DuplicateCSharpClasses.ps1',es:'Señala nombres de clases C# repetidos para revisión.',en:'Flags repeated C# class names for review.',r:'PS 7+',cmd:'./scripts/code/Find-DuplicateCSharpClasses.ps1 -Path ./src'},
+
+      {n:'Test-OdbcConnection',c:'data',p:'scripts/data/Test-OdbcConnection.ps1',es:'Prueba un DSN sin imprimir credenciales ni filas.',en:'Tests a DSN without printing credentials or rows.',r:'ODBC',cmd:'./scripts/data/Test-OdbcConnection.ps1 -Dsn ExampleDsn'},
+      {n:'Test-SqlConnection',c:'data',p:'scripts/data/Test-SqlConnection.ps1',es:'Prueba de conexión ODBC a SQL Server con consulta de ejemplo.',en:'ODBC connectivity test to SQL Server with sample query.',r:'ODBC',cmd:'./scripts/data/Test-SqlConnection.ps1 -Dsn ExampleSqlDsn -Query "SELECT 1"'},
+      {n:'Get-CrystalReportInventory',c:'data',p:'scripts/reports/Get-CrystalReportInventory.ps1',es:'Inventario de parámetros, tablas y subreportes .rpt.',en:'Inventories .rpt parameters, tables, and subreports.',r:'Crystal runtime',cmd:'./scripts/reports/Get-CrystalReportInventory.ps1 -Path ./reports'},
+
       {n:'Convert-TextToSpeech',c:'media',p:'scripts/media/Convert-TextToSpeech.ps1',es:'Crea un WAV con una voz Windows SAPI instalada.',en:'Creates a WAV with an installed Windows SAPI voice.',r:'WinPS 5.1',cmd:'powershell.exe -File ./scripts/media/Convert-TextToSpeech.ps1 -Text "Hello" -Output ./hello.wav'}
     ];
-    const labels = {all:{es:'Todos',en:'All'},files:{es:'Archivos',en:'Files'},network:{es:'Red',en:'Network'},images:{es:'Imágenes',en:'Images'},security:{es:'Seguridad',en:'Security'},code:{es:'Código',en:'Code'},data:{es:'Datos',en:'Data'},system:{es:'Procesos',en:'Processes'},media:{es:'Audio',en:'Audio'}};
+    const labels = {
+      all:{es:'Todos',en:'All'},
+      files:{es:'Archivos',en:'Files'},
+      network:{es:'Red',en:'Network'},
+      images:{es:'Imágenes',en:'Images'},
+      security:{es:'Seguridad',en:'Security'},
+      identity:{es:'Identidad',en:'Identity'},
+      events:{es:'Eventos',en:'Events'},
+      updates:{es:'Actualizaciones',en:'Updates'},
+      backup:{es:'Respaldo',en:'Backup'},
+      power:{es:'Energía',en:'Power'},
+      printing:{es:'Impresión',en:'Printing'},
+      iis:{es:'IIS',en:'IIS'},
+      system:{es:'Sistema',en:'System'},
+      processes:{es:'Procesos',en:'Processes'},
+      code:{es:'Código',en:'Code'},
+      data:{es:'Datos',en:'Data'},
+      media:{es:'Audio',en:'Audio'}
+    };
     let language = 'es', category = 'all';
     const grid = document.getElementById('grid'), filters = document.getElementById('filters'), search = document.getElementById('search');
     document.getElementById('scriptCount').textContent = tools.length;
