@@ -1,6 +1,6 @@
 # ⚡ PowerShell Toolbox
 
-**37 scripts · 15 categories · Spanish and English documentation · MIT License**
+**50 scripts · 16 categories · Spanish and English documentation · MIT License**
 
 A curated collection of standalone PowerShell scripts for daily automation: inspecting files, diagnosing networks, reviewing security, managing users, backing up data, monitoring power, printing, IIS, and much more. Each tool runs independently; no installer or module is required.
 
@@ -48,6 +48,19 @@ A curated collection of standalone PowerShell scripts for daily automation: insp
 | 📊 **Data** | [Test-OdbcConnection](scripts/data/Test-OdbcConnection.ps1) | Checks a DSN without printing credentials |
 | 📊 **Data** | [Test-SqlConnection](scripts/data/Test-SqlConnection.ps1) | ODBC connectivity test to SQL Server |
 | 📊 **Data** | [Get-CrystalReportInventory](scripts/reports/Get-CrystalReportInventory.ps1) | Inventories `.rpt` report metadata |
+| 🗄️ **Database** | [Get-SqlServerBackup](scripts/database/Get-SqlServerBackup.ps1) | Restores SQL Server databases from nightly backup (dbatools) |
+| 🗄️ **Database** | [Get-SqlServerBackupDia](scripts/database/Get-SqlServerBackupDia.ps1) | Restores SQL Server databases from mid-day backup (dbatools) |
+| 🗄️ **Database** | [Test-SqlServerConnection](scripts/database/Test-SqlServerConnection.ps1) | Tests SQL Server connectivity with dbatools |
+| 🗄️ **Database** | [Get-SqlServerDatabaseInfo](scripts/database/Get-SqlServerDatabaseInfo.ps1) | Database info: state, recovery model, size |
+| 🗄️ **Database** | [Get-SqlServerAgentJobs](scripts/database/Get-SqlServerAgentJobs.ps1) | SQL Server Agent jobs and last run outcome |
+| 🗄️ **Database** | [Get-SqlServerBackupHistory](scripts/database/Get-SqlServerBackupHistory.ps1) | Full, differential, and log backup history |
+| 🗄️ **Database** | [Get-SqlServerIndexFragmentation](scripts/database/Get-SqlServerIndexFragmentation.ps1) | Index fragmentation and rebuild/reorganize advice |
+| 🗄️ **Database** | [Test-MySqlConnection](scripts/database/Test-MySqlConnection.ps1) | Tests MySQL/MariaDB connectivity via ODBC |
+| 🗄️ **Database** | [Test-PostgreSqlConnection](scripts/database/Test-PostgreSqlConnection.ps1) | Tests PostgreSQL connectivity via ODBC |
+| 🗄️ **Database** | [Test-OracleConnection](scripts/database/Test-OracleConnection.ps1) | Tests Oracle connectivity via ODBC |
+| 🗄️ **Database** | [Test-MongoDbConnection](scripts/database/Test-MongoDbConnection.ps1) | Tests MongoDB connectivity with ping |
+| 🗄️ **Database** | [Test-RedisConnection](scripts/database/Test-RedisConnection.ps1) | Tests Redis connectivity with PING |
+| 🗄️ **Database** | [Get-ElasticsearchHealth](scripts/database/Get-ElasticsearchHealth.ps1) | Elasticsearch cluster health status |
 | 🔊 **Audio** | [Convert-TextToSpeech](scripts/media/Convert-TextToSpeech.ps1) | Creates WAV with Windows SAPI voice |
 
 ---

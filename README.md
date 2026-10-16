@@ -1,6 +1,6 @@
 # ⚡ PowerShell Toolbox
 
-**37 scripts · 15 categorías · documentación en español e inglés · Licencia MIT**
+**50 scripts · 16 categorías · documentación en español e inglés · Licencia MIT**
 
 Una colección curada de scripts de PowerShell para tareas de automatización diaria: inspeccionar archivos, diagnosticar redes, revisar seguridad, administrar usuarios, respaldar datos, monitorear energía, impresión, IIS y mucho más. Cada herramienta se ejecuta por separado; no hay instalador ni módulo obligatorio.
 
@@ -48,6 +48,19 @@ Una colección curada de scripts de PowerShell para tareas de automatización di
 | 📊 **Datos** | [Test-OdbcConnection](scripts/data/Test-OdbcConnection.ps1) | Comprueba un DSN sin imprimir credenciales |
 | 📊 **Datos** | [Test-SqlConnection](scripts/data/Test-SqlConnection.ps1) | Prueba de conexión ODBC a SQL Server |
 | 📊 **Datos** | [Get-CrystalReportInventory](scripts/reports/Get-CrystalReportInventory.ps1) | Censa metadatos de reportes `.rpt` |
+| 🗄️ **Base de datos** | [Get-SqlServerBackup](scripts/database/Get-SqlServerBackup.ps1) | Restaura BD de SQL Server desde backup nocturno (dbatools) |
+| 🗄️ **Base de datos** | [Get-SqlServerBackupDia](scripts/database/Get-SqlServerBackupDia.ps1) | Restaura BD de SQL Server desde backup medio día (dbatools) |
+| 🗄️ **Base de datos** | [Test-SqlServerConnection](scripts/database/Test-SqlServerConnection.ps1) | Prueba conectividad a SQL Server con dbatools |
+| 🗄️ **Base de datos** | [Get-SqlServerDatabaseInfo](scripts/database/Get-SqlServerDatabaseInfo.ps1) | Info de bases de datos: estado, recuperación, tamaño |
+| 🗄️ **Base de datos** | [Get-SqlServerAgentJobs](scripts/database/Get-SqlServerAgentJobs.ps1) | Trabajos de SQL Server Agent y último resultado |
+| 🗄️ **Base de datos** | [Get-SqlServerBackupHistory](scripts/database/Get-SqlServerBackupHistory.ps1) | Historial de backups completos, diferenciales y de log |
+| 🗄️ **Base de datos** | [Get-SqlServerIndexFragmentation](scripts/database/Get-SqlServerIndexFragmentation.ps1) | Fragmentación de índices y recomendación de rebuild |
+| 🗄️ **Base de datos** | [Test-MySqlConnection](scripts/database/Test-MySqlConnection.ps1) | Prueba conexión a MySQL/MariaDB vía ODBC |
+| 🗄️ **Base de datos** | [Test-PostgreSqlConnection](scripts/database/Test-PostgreSqlConnection.ps1) | Prueba conexión a PostgreSQL vía ODBC |
+| 🗄️ **Base de datos** | [Test-OracleConnection](scripts/database/Test-OracleConnection.ps1) | Prueba conexión a Oracle vía ODBC |
+| 🗄️ **Base de datos** | [Test-MongoDbConnection](scripts/database/Test-MongoDbConnection.ps1) | Prueba conexión a MongoDB con ping |
+| 🗄️ **Base de datos** | [Test-RedisConnection](scripts/database/Test-RedisConnection.ps1) | Prueba conexión a Redis con PING |
+| 🗄️ **Base de datos** | [Get-ElasticsearchHealth](scripts/database/Get-ElasticsearchHealth.ps1) | Salud de clúster de Elasticsearch |
 | 🔊 **Audio** | [Convert-TextToSpeech](scripts/media/Convert-TextToSpeech.ps1) | Crea WAV con voz SAPI de Windows |
 
 ---

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#081525">
-  <meta name="description" content="37 scripts de PowerShell para automatización diaria: archivos, red, seguridad, identidad, eventos, respaldo, energía, impresión, IIS y más.">
+  <meta name="description" content="50 scripts de PowerShell para automatización diaria: archivos, red, seguridad, identidad, eventos, respaldo, energía, impresión, IIS, bases de datos y más.">
   <title>PowerShell Toolbox · scripts que resuelven trabajo real</title>
   <style>
     :root { color-scheme: dark; --bg:#081525; --panel:#10243a; --line:#294660; --text:#edf6ff; --muted:#a5bdd0; --mint:#63e1c0; --blue:#86b8ff; --orange:#ffca86; }
@@ -61,7 +61,19 @@
     .empty { color:var(--muted); padding:30px 0; }
     footer { border-top:1px solid #28465e; padding:27px 0 40px; color:var(--muted); font-size:14px; }
     footer a { color:var(--mint); }
-    @media (max-width:900px) { .hero { grid-template-columns:1fr; padding:40px 0 60px; }.terminal { transform:none; }.grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    /* Installation steps */
+    .install { padding:42px 0 80px; border-top:1px solid #28465e; }
+    .install-head { text-align:center; margin-bottom:40px; }
+    .install-head h2 { font-size:clamp(31px,4vw,45px); letter-spacing:-.04em; margin:0 0 12px; }
+    .install-head p { color:var(--muted); font-size:18px; max-width:640px; margin:0 auto; }
+    .steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px; }
+    .step { border:1px solid #2e4a64; border-radius:17px; background:linear-gradient(155deg,#142e46,#0e2135); padding:26px; display:flex; flex-direction:column; gap:14px; }
+    .step-num { width:34px; height:34px; border-radius:50%; background:var(--mint); color:#052322; font-weight:800; font-size:18px; display:grid; place-items:center; align-self:flex-start; }
+    .step h3 { margin:0; font-size:19px; }
+    .step p { margin:0; color:var(--muted); font-size:14px; line-height:1.6; }
+    .step pre { margin:0; padding:14px; background:#06101c; border:1px solid #2e4a64; border-radius:10px; font-size:13px; overflow-x:auto; }
+    .step strong { color:var(--mint); }
+    @media (max-width:900px) { .hero { grid-template-columns:1fr; padding:40px 0 60px; }.terminal { transform:none; }.grid { grid-template-columns:repeat(2,minmax(0,1fr)); }.steps { grid-template-columns:1fr; } }
     @media (max-width:640px) { .wrap { padding:0 18px; } nav a { display:none; }.hero { gap:30px; }.grid { grid-template-columns:1fr; }.section-head { display:block; }.search { margin-top:20px; width:100%; }.stats { gap:18px; } }
   </style>
 </head>
@@ -76,9 +88,9 @@
         <div>
           <div class="eyebrow" data-es="Código práctico · sin datos de clientes" data-en="Practical code · no customer data">Código práctico · sin datos de clientes</div>
           <h1 data-es="PowerShell que <span>resuelve</span> trabajo real." data-en="PowerShell that <span>gets work done.</span>">PowerShell que <span>resuelve</span> trabajo real.</h1>
-          <p class="lead" data-es="Una caja de herramientas para archivos, red, seguridad, identidad, eventos, respaldo, energía, impresión, IIS y automatización. Scripts independientes, ejemplos claros y código listo para adaptar." data-en="A toolbox for files, networks, security, identity, events, backup, power, printing, IIS and automation. Standalone scripts, clear examples, and code ready to adapt.">Una caja de herramientas para archivos, red, seguridad, identidad, eventos, respaldo, energía, impresión, IIS y automatización. Scripts independientes, ejemplos claros y código listo para adaptar.</p>
-          <div class="actions"><a class="button primary" href="#catalog" data-es="Explorar herramientas ↓" data-en="Explore tools ↓">Explorar herramientas ↓</a><a class="button secondary" href="https://github.com/peopleworks/powershell-toolbox" data-es="Ver repositorio ↗" data-en="View repository ↗">Ver repositorio ↗</a></div>
-          <div class="stats"><div><strong id="scriptCount">37</strong><span data-es="scripts" data-en="scripts">scripts</span></div><div><strong id="categoryCount">15</strong><span data-es="categorías" data-en="categories">categorías</span></div><div><strong>MIT</strong><span data-es="licencia" data-en="license">licencia</span></div></div>
+          <p class="lead" data-es="Una caja de herramientas para archivos, red, seguridad, identidad, eventos, respaldo, energía, impresión, IIS, bases de datos y automatización. Scripts independientes, ejemplos claros y código listo para adaptar." data-en="A toolbox for files, networks, security, identity, events, backup, power, printing, IIS, databases, and automation. Standalone scripts, clear examples, and code ready to adapt.">Una caja de herramientas para archivos, red, seguridad, identidad, eventos, respaldo, energía, impresión, IIS, bases de datos y automatización. Scripts independientes, ejemplos claros y código listo para adaptar.</p>
+          <div class="actions"><a class="button primary" href="#install" data-es="Ver cómo instalar ↓" data-en="See how to install ↓">Ver cómo instalar ↓</a><a class="button secondary" href="https://github.com/peopleworks/powershell-toolbox" data-es="Ver repositorio ↗" data-en="View repository ↗">Ver repositorio ↗</a></div>
+          <div class="stats"><div><strong id="scriptCount">50</strong><span data-es="scripts" data-en="scripts">scripts</span></div><div><strong id="categoryCount">16</strong><span data-es="categorías" data-en="categories">categorías</span></div><div><strong>MIT</strong><span data-es="licencia" data-en="license">licencia</span></div></div>
         </div>
         <div class="terminal" aria-label="PowerShell example">
           <div class="terminal-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="terminal-title">PowerShell 7 · quick start</span></div>
@@ -92,6 +104,47 @@ Files      : {report-a.pdf, report-b.pdf, backup.pdf}</span>
 <span class="success">✓ Read-only · no deletions</span></pre>
         </div>
       </div>
+
+      <section id="install" class="install">
+        <div class="install-head">
+          <h2 data-es="Primeros pasos — qué instalar" data-en="First steps — what to install">Primeros pasos — qué instalar</h2>
+          <p data-es="Configura tu entorno para ejecutar los scripts de PowerShell Toolbox, incluidos los de bases de datos." data-en="Set up your environment to run PowerShell Toolbox scripts, including the database ones.">Configura tu entorno para ejecutar los scripts de PowerShell Toolbox, incluidos los de bases de datos.</p>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <div class="step-num">1</div>
+            <h3 data-es="Instalar PowerShell 7" data-en="Install PowerShell 7">Instalar PowerShell 7</h3>
+            <p data-es="La mayoría de los scripts requieren PowerShell 7 (multiplataforma). Descárgalo desde Microsoft o instálalo con winget." data-en="Most scripts require PowerShell 7 (cross-platform). Download it from Microsoft or install with winget.">La mayoría de los scripts requieren PowerShell 7 (multiplataforma). Descárgalo desde Microsoft o instálalo con winget.</p>
+            <pre>winget install Microsoft.PowerShell</pre>
+          </article>
+          <article class="step">
+            <div class="step-num">2</div>
+            <h3 data-es="Permitir ejecución de scripts" data-en="Allow script execution">Permitir ejecución de scripts</h3>
+            <p data-es="En Windows, habilita la ejecución de scripts locales firmados o remotos de confianza." data-en="On Windows, allow execution of locally signed or trusted remote scripts.">En Windows, habilita la ejecución de scripts locales firmados o remotos de confianza.</p>
+            <pre>Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser</pre>
+          </article>
+          <article class="step">
+            <div class="step-num">3</div>
+            <h3 data-es="Instalar dbatools (SQL Server)" data-en="Install dbatools (SQL Server)">Instalar dbatools (SQL Server)</h3>
+            <p data-es="Los scripts de respaldo, conexión, info, jobs, historial y fragmentación de SQL Server usan dbatools." data-en="The SQL Server backup, connection, info, jobs, history, and fragmentation scripts use dbatools.">Los scripts de respaldo, conexión, info, jobs, historial y fragmentación de SQL Server usan dbatools.</p>
+            <pre>Install-Module dbatools -Scope CurrentUser</pre>
+          </article>
+          <article class="step">
+            <div class="step-num">4</div>
+            <h3 data-es="Controladores ODBC (opcional)" data-en="ODBC drivers (optional)">Controladores ODBC (opcional)</h3>
+            <p data-es="Instala los controladores ODBC de las bases de datos que quieras probar: MySQL, PostgreSQL, Oracle." data-en="Install the ODBC drivers for the databases you want to test: MySQL, PostgreSQL, Oracle.">Instala los controladores ODBC de las bases de datos que quieras probar: MySQL, PostgreSQL, Oracle.</p>
+            <pre># Ejemplo: MySQL ODBC Driver 8.0
+# Descarga desde dev.mysql.com</pre>
+          </article>
+          <article class="step">
+            <div class="step-num">5</div>
+            <h3 data-es="Ejecutar un script de ejemplo" data-en="Run an example script">Ejecutar un script de ejemplo</h3>
+            <p data-es="Desde la raíz del repositorio, en PowerShell 7, prueba cualquiera de los 50 scripts." data-en="From the repository root, in PowerShell 7, try any of the 50 scripts.">Desde la raíz del repositorio, en PowerShell 7, prueba cualquiera de los 50 scripts.</p>
+            <pre>./scripts/database/Test-SqlServerConnection.ps1 -SqlInstance SqlProd</pre>
+          </article>
+        </div>
+      </section>
+
       <section id="catalog" class="catalog">
         <div class="section-head"><div><h2 data-es="Encuentra tu próxima herramienta" data-en="Find your next tool">Encuentra tu próxima herramienta</h2><p data-es="Filtra por tema o busca por nombre. Cada script se ejecuta por separado." data-en="Filter by topic or search by name. Every script runs on its own.">Filtra por tema o busca por nombre. Cada script se ejecuta por separado.</p></div><input id="search" class="search" type="search" placeholder="Buscar scripts…" aria-label="Search scripts"></div>
         <div id="filters" class="filters" role="group" aria-label="Categories"></div>
@@ -155,6 +208,20 @@ Files      : {report-a.pdf, report-b.pdf, backup.pdf}</span>
       {n:'Test-SqlConnection',c:'data',p:'scripts/data/Test-SqlConnection.ps1',es:'Prueba de conexión ODBC a SQL Server con consulta de ejemplo.',en:'ODBC connectivity test to SQL Server with sample query.',r:'ODBC',cmd:'./scripts/data/Test-SqlConnection.ps1 -Dsn ExampleSqlDsn -Query "SELECT 1"'},
       {n:'Get-CrystalReportInventory',c:'data',p:'scripts/reports/Get-CrystalReportInventory.ps1',es:'Inventario de parámetros, tablas y subreportes .rpt.',en:'Inventories .rpt parameters, tables, and subreports.',r:'Crystal runtime',cmd:'./scripts/reports/Get-CrystalReportInventory.ps1 -Path ./reports'},
 
+      {n:'Get-SqlServerBackup',c:'database',p:'scripts/database/Get-SqlServerBackup.ps1',es:'Restaura BD de SQL Server desde backup nocturno (dbatools). Adaptado de IBEROFARMACOS.',en:'Restores SQL Server databases from nightly backup (dbatools). Adapted from IBEROFARMACOS.',r:'dbatools',cmd:'./scripts/database/Get-SqlServerBackup.ps1 -Source DBSERVER -Destination APPSERVER4 -SharedPath "\\\\backups\\full\\" -Databases @("EXACTUS")'},
+      {n:'Get-SqlServerBackupDia',c:'database',p:'scripts/database/Get-SqlServerBackupDia.ps1',es:'Restaura BD de SQL Server desde backup medio día (dbatools). Adaptado de IBEROFARMACOS.',en:'Restores SQL Server databases from mid-day backup (dbatools). Adapted from IBEROFARMACOS.',r:'dbatools',cmd:'./scripts/database/Get-SqlServerBackupDia.ps1 -Source DBSERVER -Destination APPSERVER4 -SharedPath "\\\\backups\\midday\\" -Databases @("EXACTUS")'},
+      {n:'Test-SqlServerConnection',c:'database',p:'scripts/database/Test-SqlServerConnection.ps1',es:'Prueba conectividad a SQL Server con dbatools.',en:'Tests SQL Server connectivity with dbatools.',r:'dbatools',cmd:'./scripts/database/Test-SqlServerConnection.ps1 -SqlInstance SqlProd'},
+      {n:'Get-SqlServerDatabaseInfo',c:'database',p:'scripts/database/Get-SqlServerDatabaseInfo.ps1',es:'Info de bases de datos: estado, recuperación, tamaño, propietario.',en:'Database info: state, recovery model, size, owner.',r:'dbatools',cmd:'./scripts/database/Get-SqlServerDatabaseInfo.ps1 -SqlInstance SqlProd'},
+      {n:'Get-SqlServerAgentJobs',c:'database',p:'scripts/database/Get-SqlServerAgentJobs.ps1',es:'Trabajos de SQL Server Agent y último resultado de ejecución.',en:'SQL Server Agent jobs and last run outcome.',r:'dbatools',cmd:'./scripts/database/Get-SqlServerAgentJobs.ps1 -SqlInstance SqlProd'},
+      {n:'Get-SqlServerBackupHistory',c:'database',p:'scripts/database/Get-SqlServerBackupHistory.ps1',es:'Historial de backups completos, diferenciales y de log de msdb.',en:'Full, differential, and log backup history from msdb.',r:'dbatools',cmd:'./scripts/database/Get-SqlServerBackupHistory.ps1 -SqlInstance SqlProd'},
+      {n:'Get-SqlServerIndexFragmentation',c:'database',p:'scripts/database/Get-SqlServerIndexFragmentation.ps1',es:'Fragmentación de índices con recomendación de rebuild o reorganize.',en:'Index fragmentation with rebuild or reorganize recommendation.',r:'dbatools',cmd:'./scripts/database/Get-SqlServerIndexFragmentation.ps1 -SqlInstance SqlProd -Database ExampleDb'},
+      {n:'Test-MySqlConnection',c:'database',p:'scripts/database/Test-MySqlConnection.ps1',es:'Prueba conexión a MySQL/MariaDB vía ODBC.',en:'Tests MySQL/MariaDB connectivity via ODBC.',r:'ODBC MySQL',cmd:'./scripts/database/Test-MySqlConnection.ps1 -Server mysql.example.com -Database ExampleDb -User example_user'},
+      {n:'Test-PostgreSqlConnection',c:'database',p:'scripts/database/Test-PostgreSqlConnection.ps1',es:'Prueba conexión a PostgreSQL vía ODBC.',en:'Tests PostgreSQL connectivity via ODBC.',r:'ODBC PostgreSQL',cmd:'./scripts/database/Test-PostgreSqlConnection.ps1 -Server postgres.example.com -Database ExampleDb -User example_user'},
+      {n:'Test-OracleConnection',c:'database',p:'scripts/database/Test-OracleConnection.ps1',es:'Prueba conexión a Oracle vía ODBC.',en:'Tests Oracle connectivity via ODBC.',r:'ODBC Oracle',cmd:'./scripts/database/Test-OracleConnection.ps1 -TnsName ExampleOracle -User example_user'},
+      {n:'Test-MongoDbConnection',c:'database',p:'scripts/database/Test-MongoDbConnection.ps1',es:'Prueba conexión a MongoDB con comando ping.',en:'Tests MongoDB connectivity with ping command.',r:'MongoDB.Driver',cmd:'./scripts/database/Test-MongoDbConnection.ps1 -Server mongodb.example.com -Port 27017'},
+      {n:'Test-RedisConnection',c:'database',p:'scripts/database/Test-RedisConnection.ps1',es:'Prueba conexión a Redis enviando PING.',en:'Tests Redis connectivity by sending PING.',r:'TCP 6379',cmd:'./scripts/database/Test-RedisConnection.ps1 -Server redis.example.com -Port 6379'},
+      {n:'Get-ElasticsearchHealth',c:'database',p:'scripts/database/Get-ElasticsearchHealth.ps1',es:'Salud de clúster de Elasticsearch: estado, nodos, tareas pendientes.',en:'Elasticsearch cluster health: status, nodes, pending tasks.',r:'HTTP 9200',cmd:'./scripts/database/Get-ElasticsearchHealth.ps1 -Server elastic.example.com -Port 9200'},
+
       {n:'Convert-TextToSpeech',c:'media',p:'scripts/media/Convert-TextToSpeech.ps1',es:'Crea un WAV con una voz Windows SAPI instalada.',en:'Creates a WAV with an installed Windows SAPI voice.',r:'WinPS 5.1',cmd:'powershell.exe -File ./scripts/media/Convert-TextToSpeech.ps1 -Text "Hello" -Output ./hello.wav'}
     ];
     const labels = {
@@ -174,6 +241,7 @@ Files      : {report-a.pdf, report-b.pdf, backup.pdf}</span>
       processes:{es:'Procesos',en:'Processes'},
       code:{es:'Código',en:'Code'},
       data:{es:'Datos',en:'Data'},
+      database:{es:'Base de datos',en:'Database'},
       media:{es:'Audio',en:'Audio'}
     };
     let language = 'es', category = 'all';
